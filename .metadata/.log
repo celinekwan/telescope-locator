@@ -7153,3 +7153,9 @@ C Model Exception: C Model Status [Element main.c does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-07-03 14:37:46.536
 !MESSAGE Element main.c does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-07-04 11:29:51.113
+!MESSAGE Indexed 'stel-interrupts-test' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-07-04 11:29:54.304
+!MESSAGE Indexed 'stel-interrupts-test' (23 sources, 82 headers) in 1.51 sec: 5,338 declarations; 28,260 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.006%)

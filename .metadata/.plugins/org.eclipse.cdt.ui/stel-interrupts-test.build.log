@@ -1,0 +1,10 @@
+12:20:29 **** Incremental Build of configuration Debug for project stel-interrupts-test ****
+make -j16 all 
+arm-none-eabi-size   stel-interrupts-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15904	     20	   1740	  17664	   4500	stel-interrupts-test.elf
+Finished building: default.size.stdout
+ 
+
+12:20:29 Build Finished. 0 errors, 0 warnings. (took 218ms)
+

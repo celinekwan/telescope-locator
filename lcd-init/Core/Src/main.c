@@ -14,6 +14,8 @@
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
+  *	prints cursor or "hello world" or hardcoded xyz coordinates of an accelerometer
+  *	works with LCD screen
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
