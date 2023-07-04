@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="sizeof"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="sizeof"/>
+			<item value="dec_str"/>
+			<item value="."/>
+			<item value="status_transmit_dec"/>
+			<item value="transmit_ra"/>
+			<item value="&#x09;&#x09;&#x09;  status_transmit_ra = HAL_UART_Transmit(&amp;huart2, (uint8_t*)ra_str, sizeof(ra_str), 10);"/>
+			<item value="status_transmit_ra"/>
+			<item value="stel_cmds"/>
+			<item value="HAL_UART_Transmit"/>
+			<item value="init_"/>
+			<item value="char pound"/>
+			<item value="buf2"/>
+			<item value="buf 2"/>
+			<item value="buf1"/>
+			<item value="clear_buf1"/>
+		</list>
+		<list key="replacehistory">
+			<item value="asterisk"/>
+			<item value="s_lat"/>
+			<item value="m_lat"/>
+			<item value="d_lng"/>
+			<item value="d_lat"/>
+			<item value="data_rec_bno"/>
+			<item value="RTC_ADDR"/>
+			<item value="../libnova"/>
+			<item value="rtc_write_reg"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1418"/>
+		<item key="DIALOG_Y_ORIGIN" value="224"/>
+		<item key="DIALOG_WIDTH" value="511"/>
+		<item key="DIALOG_HEIGHT" value="499"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

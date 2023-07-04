@@ -1,0 +1,10 @@
+10:15:34 **** Build of configuration Debug for project ring-buf-test ****
+make -j16 all 
+arm-none-eabi-size   ring-buf-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12188	     20	   1852	  14060	   36ec	ring-buf-test.elf
+Finished building: default.size.stdout
+ 
+
+10:15:34 Build Finished. 0 errors, 0 warnings. (took 343ms)
+

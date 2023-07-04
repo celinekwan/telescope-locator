@@ -1,0 +1,10 @@
+10:15:33 **** Build of configuration Debug for project lcd_accel ****
+make -j16 all 
+arm-none-eabi-size   lcd_accel.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29640	    484	   1812	  31936	   7cc0	lcd_accel.elf
+Finished building: default.size.stdout
+ 
+
+10:15:33 Build Finished. 0 errors, 0 warnings. (took 290ms)
+

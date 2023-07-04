@@ -1,0 +1,10 @@
+stm32l4xx_it.cpp:71:6:void NMI_Handler()	1
+stm32l4xx_it.cpp:86:6:void HardFault_Handler()	1
+stm32l4xx_it.cpp:101:6:void MemManage_Handler()	1
+stm32l4xx_it.cpp:116:6:void BusFault_Handler()	1
+stm32l4xx_it.cpp:131:6:void UsageFault_Handler()	1
+stm32l4xx_it.cpp:146:6:void SVC_Handler()	1
+stm32l4xx_it.cpp:159:6:void DebugMon_Handler()	1
+stm32l4xx_it.cpp:172:6:void PendSV_Handler()	1
+stm32l4xx_it.cpp:185:6:void SysTick_Handler()	1
+stm32l4xx_it.cpp:206:6:void USART1_IRQHandler()	1

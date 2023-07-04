@@ -1,0 +1,12 @@
+MadgwickAHRS.h:42:10:void Madgwick::begin(float)	1
+MadgwickAHRS.h:48:11:float Madgwick::getRoll()	2
+MadgwickAHRS.h:52:11:float Madgwick::getPitch()	2
+MadgwickAHRS.h:56:11:float Madgwick::getYaw()	2
+MadgwickAHRS.h:60:11:float Madgwick::getRollRadians()	2
+MadgwickAHRS.h:64:11:float Madgwick::getPitchRadians()	2
+MadgwickAHRS.h:68:11:float Madgwick::getYawRadians()	2
+main.cpp:74:5:int main()	2
+main.cpp:182:6:void SystemClock_Config()	4
+main.cpp:232:13:void MX_USART2_UART_Init()	2
+main.cpp:267:13:void MX_GPIO_Init()	1
+main.cpp:307:6:void Error_Handler()	1

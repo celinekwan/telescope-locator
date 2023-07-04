@@ -1,0 +1,14 @@
+../Core/Src/gps_c/uartRingBuffer.c:45:6:Ringbuf_init	4	static
+../Core/Src/gps_c/uartRingBuffer.c:57:6:store_char	24	static
+../Core/Src/gps_c/uartRingBuffer.c:73:12:check_for	32	static
+../Core/Src/gps_c/uartRingBuffer.c:106:5:Uart_read	16	static
+../Core/Src/gps_c/uartRingBuffer.c:123:6:Uart_write	24	static
+../Core/Src/gps_c/uartRingBuffer.c:140:5:IsDataAvailable	4	static
+../Core/Src/gps_c/uartRingBuffer.c:148:6:Uart_sendstring	16	static
+../Core/Src/gps_c/uartRingBuffer.c:153:6:GetDataFromBuffer	56	static
+../Core/Src/gps_c/uartRingBuffer.c:210:6:Uart_flush	8	static
+../Core/Src/gps_c/uartRingBuffer.c:217:5:Uart_peek	4	static
+../Core/Src/gps_c/uartRingBuffer.c:235:5:Copy_upto	32	static
+../Core/Src/gps_c/uartRingBuffer.c:275:5:Get_after	32	static
+../Core/Src/gps_c/uartRingBuffer.c:291:5:Wait_for	24	static
+../Core/Src/gps_c/uartRingBuffer.c:335:6:Uart_isr	32	static

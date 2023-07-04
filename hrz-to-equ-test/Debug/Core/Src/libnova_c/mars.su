@@ -1,0 +1,10 @@
+../Core/Src/libnova_c/mars.c:6538:6:ln_get_mars_equ_coords	200	static
+../Core/Src/libnova_c/mars.c:6585:6:ln_get_mars_helio_coords	216	static
+../Core/Src/libnova_c/mars.c:6659:8:ln_get_mars_earth_dist	136	static
+../Core/Src/libnova_c/mars.c:6692:8:ln_get_mars_solar_dist	40	static
+../Core/Src/libnova_c/mars.c:6709:8:ln_get_mars_magnitude	48	static
+../Core/Src/libnova_c/mars.c:6731:8:ln_get_mars_disk	48	static
+../Core/Src/libnova_c/mars.c:6753:8:ln_get_mars_phase	56	static
+../Core/Src/libnova_c/mars.c:6781:5:ln_get_mars_rst	24	static
+../Core/Src/libnova_c/mars.c:6794:8:ln_get_mars_sdiam	32	static
+../Core/Src/libnova_c/mars.c:6810:6:ln_get_mars_rect_helio	48	static

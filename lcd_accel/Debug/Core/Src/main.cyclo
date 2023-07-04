@@ -1,0 +1,15 @@
+main.c:125:6:adxl_write	1
+main.c:133:6:adxl_read	1
+main.c:138:6:adxl_init	1
+main.c:154:6:I2Csendcmd	1
+main.c:161:6:I2Csenddatum	1
+main.c:168:6:screen_init	1
+main.c:187:6:screen_write_string	5
+main.c:215:6:screen_write_xyz	2
+main.c:240:6:screen_write_accel_data	1
+main.c:257:5:main	1
+main.c:329:6:SystemClock_Config	4
+main.c:379:13:MX_I2C1_Init	4
+main.c:427:13:MX_USART2_UART_Init	2
+main.c:462:13:MX_GPIO_Init	1
+main.c:498:6:Error_Handler	1

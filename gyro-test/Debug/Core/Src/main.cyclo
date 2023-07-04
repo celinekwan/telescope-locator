@@ -1,0 +1,15 @@
+main.c:114:16:wait_for_gpio_state_timeout	6
+main.c:137:13:I2C_ClearBusyFlagErratum	1
+main.c:220:6:itg_read	2
+main.c:247:6:itg_write	2
+main.c:263:6:itg_init	1
+main.c:274:6:readXYZ	1
+main.c:286:6:calibrateRAW	1
+main.c:292:6:calibrateDEG	1
+main.c:298:6:convert	1
+main.c:315:5:main	1
+main.c:374:6:SystemClock_Config	4
+main.c:424:13:MX_I2C1_Init	4
+main.c:472:13:MX_USART2_UART_Init	2
+main.c:507:13:MX_GPIO_Init	1
+main.c:547:6:Error_Handler	1

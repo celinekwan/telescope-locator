@@ -1,0 +1,12 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BNO055-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:accelerometer Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:accelerometer-new Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:blinky_led Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:eeprom-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gps-libnova Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gps-ring-buf-hrz-to-equ-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gps-ring-buf-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gyro-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:hrz-to-equ-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:lcd_accel Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:madgwick-cpp-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ring-buf-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:rtc-cpp-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm-stel-test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:lcd-init Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:gps-eeprom-test Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BNO055-test\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BNO055-test\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:accelerometer\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:accelerometer\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:blinky_led\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:blinky_led\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:lcd-init\ Debug/activeLaunchMode=debug

@@ -1,0 +1,11 @@
+transform.c:35:6:ln_get_rect_from_helio	1
+transform.c:75:6:ln_get_hrz_from_equ	1
+transform.c:85:6:ln_get_hrz_from_equ_sidereal_time	10
+transform.c:155:6:ln_get_equ_from_hrz	1
+transform.c:192:6:ln_get_equ_from_ecl	1
+transform.c:227:6:ln_get_ecl_from_equ	1
+transform.c:256:6:ln_get_ecl_from_rect	1
+transform.c:272:6:ln_get_equ_from_gal	1
+transform.c:303:6:ln_get_equ2000_from_gal	1
+transform.c:316:6:ln_get_gal_from_equ	1
+transform.c:348:6:ln_get_gal_from_equ2000	1

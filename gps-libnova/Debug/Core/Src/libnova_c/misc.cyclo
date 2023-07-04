@@ -1,0 +1,6 @@
+misc.c:71:14:trim	4
+misc.c:89:13:skipwhite	2
+misc.c:129:8:get_dec_location	28
+misc.c:217:7:get_humanr_location	2
+misc.c:242:8:interpolate3	1
+misc.c:270:8:interpolate5	1

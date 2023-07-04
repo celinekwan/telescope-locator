@@ -1,0 +1,36 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+RTClib.h:22:10:uint8_t DateTime::second() const	1
+RTClib.h:28:10:uint8_t DateTime::minute() const	1
+RTClib.h:34:10:uint8_t DateTime::hour() const	1
+RTClib.h:42:10:uint8_t DateTime::day() const	1
+RTClib.h:48:10:uint8_t DateTime::month() const	1
+RTClib.h:54:11:uint16_t DateTime::year() const	1
+main.cpp:175:6:void eeprom_write_byte(uint16_t, uint8_t)	1
+main.cpp:182:6:void eeprom_write_bytes(uint16_t, uint8_t*, uint8_t)	2
+main.cpp:190:6:void eeprom_read_bytes(uint16_t, uint8_t)	1
+main.cpp:196:6:void rtc_read_reg_bytes(uint8_t, uint8_t)	1
+main.cpp:201:6:void rtc_read_buf(uint8_t*, uint8_t)	1
+main.cpp:206:9:uint8_t rtc_read_reg(uint8_t)	1
+main.cpp:212:6:void rtc_write_reg(uint8_t, uint8_t)	1
+main.cpp:220:6:void rtc_write_reg_bytes(uint8_t*, uint8_t)	3
+main.cpp:231:6:bool lostPower()	1
+main.cpp:240:9:uint8_t bin2bcd(uint8_t)	1
+main.cpp:251:16:uint8_t dowToDS3231(uint8_t)	2
+main.cpp:259:6:void adjust(const DateTime&)	1
+main.cpp:286:16:uint8_t bcd2bin(uint8_t)	1
+main.cpp:294:10:DateTime now()	1
+main.cpp:314:6:void bno055_write_datum(uint8_t, uint8_t)	1
+main.cpp:322:6:void bno055_read_data(uint8_t, uint8_t)	4
+main.cpp:338:6:void bno055_config()	1
+main.cpp:344:6:void bno055_read_calibrate_status()	5
+main.cpp:366:6:void print_EUL_data(uint8_t)	2
+main.cpp:427:5:int main()	9
+main.cpp:595:6:void SystemClock_Config()	4
+main.cpp:645:13:void MX_I2C1_Init()	4
+main.cpp:693:13:void MX_USART1_UART_Init()	2
+main.cpp:728:13:void MX_USART2_UART_Init()	2
+main.cpp:763:13:void MX_GPIO_Init()	1
+main.cpp:803:6:void Error_Handler()	1
+main.cpp:812:1:void __static_initialization_and_destruction_0(int, int)	5
+main.cpp:812:1:cpp)	1
+main.cpp:812:1:cpp)	1

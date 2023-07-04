@@ -1,0 +1,4 @@
+earth.c:2699:6:ln_get_earth_helio_coords	2
+earth.c:2772:8:ln_get_earth_solar_dist	1
+earth.c:2793:6:ln_get_earth_centre_dist	1
+earth.c:2813:6:ln_get_earth_rect_helio	1

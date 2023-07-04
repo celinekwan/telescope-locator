@@ -1,0 +1,2 @@
+../Core/Src/vsop87.c:27:8:ln_calc_series	56	static
+../Core/Src/vsop87.c:49:6:ln_vsop87_to_fk5	88	static

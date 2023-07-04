@@ -1,0 +1,10 @@
+../Core/Src/venus.c:1847:6:ln_get_venus_equ_coords	200	static
+../Core/Src/venus.c:1893:6:ln_get_venus_helio_coords	216	static
+../Core/Src/venus.c:1967:8:ln_get_venus_earth_dist	136	static
+../Core/Src/venus.c:2000:8:ln_get_venus_solar_dist	40	static
+../Core/Src/venus.c:2018:8:ln_get_venus_magnitude	64	static
+../Core/Src/venus.c:2043:8:ln_get_venus_disk	48	static
+../Core/Src/venus.c:2065:8:ln_get_venus_phase	56	static
+../Core/Src/venus.c:2093:5:ln_get_venus_rst	24	static
+../Core/Src/venus.c:2106:8:ln_get_venus_sdiam	32	static
+../Core/Src/venus.c:2122:6:ln_get_venus_rect_helio	48	static

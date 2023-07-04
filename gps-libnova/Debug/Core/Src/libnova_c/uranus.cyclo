@@ -1,0 +1,10 @@
+uranus.c:5386:6:ln_get_uranus_equ_coords	3
+uranus.c:5433:6:ln_get_uranus_helio_coords	2
+uranus.c:5504:8:ln_get_uranus_earth_dist	1
+uranus.c:5537:8:ln_get_uranus_solar_dist	1
+uranus.c:5554:8:ln_get_uranus_magnitude	1
+uranus.c:5574:8:ln_get_uranus_disk	1
+uranus.c:5596:8:ln_get_uranus_phase	1
+uranus.c:5623:5:ln_get_uranus_rst	1
+uranus.c:5636:8:ln_get_uranus_sdiam	1
+uranus.c:5652:6:ln_get_uranus_rect_helio	1

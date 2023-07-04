@@ -1,0 +1,6 @@
+../Core/Src/libnova_c/misc.c:71:14:trim	24	static
+../Core/Src/libnova_c/misc.c:89:13:skipwhite	16	static
+../Core/Src/libnova_c/misc.c:129:8:get_dec_location	112	dynamic
+../Core/Src/libnova_c/misc.c:217:7:get_humanr_location	56	static
+../Core/Src/libnova_c/misc.c:242:8:interpolate3	88	static
+../Core/Src/libnova_c/misc.c:270:8:interpolate5	176	static

@@ -1,0 +1,28 @@
+14:00:47 **** Incremental Build of configuration Debug for project hrz-to-equ-coord-test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/sidereal_time.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sidereal_time.d" -MT"Core/Src/sidereal_time.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sidereal_time.o"
+../Core/Src/sidereal_time.c: In function 'ln_get_apparent_sidereal_time':
+../Core/Src/sidereal_time.c:30:4: warning: implicit declaration of function 'ln_get_nutation' [-Wimplicit-function-declaration]
+   30 |    ln_get_nutation (JD, &nutation);
+      |    ^~~~~~~~~~~~~~~
+../Core/Src/sidereal_time.c:32:51: warning: implicit declaration of function 'ln_deg_to_rad' [-Wimplicit-function-declaration]
+   32 |    correction = (nutation.longitude / 15.0 * cos (ln_deg_to_rad(nutation.obliquity)));
+      |                                                   ^~~~~~~~~~~~~
+../Core/Src/sidereal_time.c: In function 'ln_get_mean_sidereal_time':
+../Core/Src/sidereal_time.c:59:16: warning: implicit declaration of function 'ln_range_degrees' [-Wimplicit-function-declaration]
+   59 |     sidereal = ln_range_degrees (sidereal);
+      |                ^~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "hrz-to-equ-coord-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\hrz-to-equ-coord-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="hrz-to-equ-coord-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: hrz-to-equ-coord-test.elf
+ 
+arm-none-eabi-size   hrz-to-equ-coord-test.elf 
+arm-none-eabi-objdump -h -S  hrz-to-equ-coord-test.elf  > "hrz-to-equ-coord-test.list"
+   text	   data	    bss	    dec	    hex	filename
+  11320	     20	   1700	  13040	   32f0	hrz-to-equ-coord-test.elf
+Finished building: default.size.stdout
+ 
+Finished building: hrz-to-equ-coord-test.list
+ 
+
+14:00:47 Build Finished. 0 errors, 3 warnings. (took 506ms)
+

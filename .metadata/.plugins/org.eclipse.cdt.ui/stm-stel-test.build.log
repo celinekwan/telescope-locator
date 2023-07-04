@@ -1,0 +1,10 @@
+12:30:46 **** Incremental Build of configuration Debug for project stm-stel-test ****
+make -j16 all 
+arm-none-eabi-size   stm-stel-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28944	    484	   1788	  31216	   79f0	stm-stel-test.elf
+Finished building: default.size.stdout
+ 
+
+12:30:46 Build Finished. 0 errors, 0 warnings. (took 332ms)
+

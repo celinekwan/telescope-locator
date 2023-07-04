@@ -1,0 +1,13 @@
+rise_set.c:27:5:check_coords	5
+rise_set.c:62:5:ln_get_object_rst	1
+rise_set.c:81:5:ln_get_object_rst_horizon	9
+rise_set.c:190:5:ln_get_object_next_rst	1
+rise_set.c:196:6:set_next_rst	1
+rise_set.c:203:8:find_next	3
+rise_set.c:228:5:ln_get_object_next_rst_horizon	8
+rise_set.c:275:5:ln_get_body_rst_horizon	13
+rise_set.c:425:5:ln_get_body_next_rst_horizon	1
+rise_set.c:455:5:ln_get_body_next_rst_horizon_future	15
+rise_set.c:519:5:ln_get_motion_body_rst_horizon	12
+rise_set.c:651:5:ln_get_motion_body_next_rst_horizon	1
+rise_set.c:675:5:ln_get_motion_body_next_rst_horizon_future	15

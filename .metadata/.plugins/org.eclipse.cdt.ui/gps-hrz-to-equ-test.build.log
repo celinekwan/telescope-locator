@@ -1,0 +1,16 @@
+12:05:02 **** Incremental Build of configuration Debug for project gps-hrz-to-equ-test ****
+make -j16 all 
+arm-none-eabi-gcc -o "gps-hrz-to-equ-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-hrz-to-equ-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-hrz-to-equ-test.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gps-hrz-to-equ-test.elf
+ 
+arm-none-eabi-size   gps-hrz-to-equ-test.elf 
+arm-none-eabi-objdump -h -S  gps-hrz-to-equ-test.elf  > "gps-hrz-to-equ-test.list"
+   text	   data	    bss	    dec	    hex	filename
+  49744	    484	   1760	  51988	   cb14	gps-hrz-to-equ-test.elf
+Finished building: default.size.stdout
+ 
+Finished building: gps-hrz-to-equ-test.list
+ 
+
+12:05:05 Build Finished. 0 errors, 0 warnings. (took 2s.581ms)
+

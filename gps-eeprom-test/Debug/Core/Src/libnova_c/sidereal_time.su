@@ -1,0 +1,2 @@
+../Core/Src/libnova_c/sidereal_time.c:33:8:ln_get_mean_sidereal_time	40	static
+../Core/Src/libnova_c/sidereal_time.c:61:8:ln_get_apparent_sidereal_time	64	static

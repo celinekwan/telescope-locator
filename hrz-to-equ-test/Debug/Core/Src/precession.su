@@ -1,0 +1,3 @@
+../Core/Src/precession.c:64:6:ln_get_equ_prec	152	static
+../Core/Src/precession.c:119:6:ln_get_equ_prec2	176	static
+../Core/Src/precession.c:177:6:ln_get_ecl_prec	24	static

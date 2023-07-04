@@ -1,0 +1,2 @@
+../Core/Src/libnova_c/aberration.c:218:6:ln_get_equ_aber	224	static
+../Core/Src/libnova_c/aberration.c:281:6:ln_get_ecl_aber	160	static

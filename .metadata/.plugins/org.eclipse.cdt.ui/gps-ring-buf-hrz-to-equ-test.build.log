@@ -1,0 +1,48 @@
+10:15:26 **** Build of configuration Debug for project gps-ring-buf-hrz-to-equ-test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:128:9: warning: unused variable 'value_2' [-Wunused-variable]
+  128 |     int value_2 = decodeGGA(GGA,&gpsData.ggastruct); // 0=fixed; 1=error
+      |         ^~~~~~~
+../Core/Src/main.c:127:9: warning: unused variable 'value_1' [-Wunused-variable]
+  127 |     int value_1 = Copy_upto("*", GGA); // 1=successful copy
+      |         ^~~~~~~
+../Core/Src/main.c:133:9: warning: unused variable 'value_4' [-Wunused-variable]
+  133 |     int value_4 = decodeRMC(RMC,&gpsData.rmcstruct); // 0=fixed; 1=error
+      |         ^~~~~~~
+../Core/Src/main.c:132:9: warning: unused variable 'value_3' [-Wunused-variable]
+  132 |     int value_3 = Copy_upto("*", RMC); // 1=successful copy
+      |         ^~~~~~~
+../Core/Src/main.c:141:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  141 |     HAL_UART_Transmit(&huart2, ready_msg, sizeof(ready_msg), 10);
+      |                                ^~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1674:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1674 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:153:32: warning: unused variable 'hequ' [-Wunused-variable]
+  153 |   struct lnh_equ_posn hobject, hequ;
+      |                                ^~~~
+../Core/Src/main.c:147:10: warning: unused variable 'lat' [-Wunused-variable]
+  147 |    float lat = gpsData.ggastruct.lcation.latitude; // float - check if this works
+      |          ^~~
+arm-none-eabi-gcc -o "gps-ring-buf-hrz-to-equ-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-ring-buf-hrz-to-equ-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-ring-buf-hrz-to-equ-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gps-ring-buf-hrz-to-equ-test.elf
+ 
+arm-none-eabi-size   gps-ring-buf-hrz-to-equ-test.elf 
+arm-none-eabi-objdump -h -S  gps-ring-buf-hrz-to-equ-test.elf  > "gps-ring-buf-hrz-to-equ-test.list"
+   text	   data	    bss	    dec	    hex	filename
+  48560	    120	   3216	  51896	   cab8	gps-ring-buf-hrz-to-equ-test.elf
+Finished building: default.size.stdout
+ 
+Finished building: gps-ring-buf-hrz-to-equ-test.list
+ 
+
+10:15:28 Build Finished. 0 errors, 7 warnings. (took 1s.439ms)
+

@@ -1,0 +1,16 @@
+../Core/Src/julian_day.c:40:8:ln_get_julian_day	80	static
+../Core/Src/julian_day.c:88:14:ln_get_day_of_week	32	static
+../Core/Src/julian_day.c:107:6:ln_get_date	80	static
+../Core/Src/julian_day.c:157:6:ln_get_date_from_timet	56	static
+../Core/Src/julian_day.c:173:6:ln_get_date_from_tm	16	static
+../Core/Src/julian_day.c:189:6:ln_get_date_from_sys	56	static
+../Core/Src/julian_day.c:217:8:ln_get_julian_from_timet	16	static
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\math.h:318:15:round	16	static
+../Core/Src/julian_day.c:239:6:ln_get_timet_from_julian	24	static
+../Core/Src/julian_day.c:249:8:ln_get_julian_from_sys	48	static
+../Core/Src/julian_day.c:267:8:ln_get_julian_local_date	48	static
+../Core/Src/julian_day.c:283:6:ln_get_local_date	64	static
+../Core/Src/julian_day.c:320:5:ln_get_date_from_mpc	32	static
+../Core/Src/julian_day.c:375:8:ln_get_julian_from_mpc	56	static
+../Core/Src/julian_day.c:393:6:ln_date_to_zonedate	64	static
+../Core/Src/julian_day.c:418:6:ln_zonedate_to_date	56	static

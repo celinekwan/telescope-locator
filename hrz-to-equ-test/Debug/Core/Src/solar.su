@@ -1,0 +1,7 @@
+../Core/Src/solar.c:39:6:ln_get_solar_geom_coords	32	static
+../Core/Src/solar.c:56:6:ln_get_solar_equ_coords	96	static
+../Core/Src/solar.c:87:6:ln_get_solar_ecl_coords	80	static
+../Core/Src/solar.c:116:6:ln_get_solar_geo_coords	72	static
+../Core/Src/solar.c:129:5:ln_get_solar_rst_horizon	32	static
+../Core/Src/solar.c:139:5:ln_get_solar_rst	24	static
+../Core/Src/solar.c:151:8:ln_get_solar_sdiam	32	static

@@ -1,0 +1,3 @@
+../Core/Src/asteroid.c:34:8:ln_get_asteroid_mag	120	static
+../Core/Src/asteroid.c:72:8:ln_get_asteroid_sdiam_km	32	static
+../Core/Src/asteroid.c:89:8:ln_get_asteroid_sdiam_arc	64	static

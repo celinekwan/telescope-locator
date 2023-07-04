@@ -1,0 +1,2 @@
+../Core/Src/libnova_c/comet.c:34:8:ln_get_ell_comet_mag	88	static
+../Core/Src/libnova_c/comet.c:64:8:ln_get_par_comet_mag	72	static

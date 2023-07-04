@@ -1,0 +1,10 @@
+mercury.c:7274:6:ln_get_mercury_equ_coords	3
+mercury.c:7321:6:ln_get_mercury_helio_coords	2
+mercury.c:7396:8:ln_get_mercury_earth_dist	1
+mercury.c:7429:8:ln_get_mercury_solar_dist	1
+mercury.c:7447:8:ln_get_mercury_magnitude	1
+mercury.c:7472:8:ln_get_mercury_disk	1
+mercury.c:7494:8:ln_get_mercury_phase	1
+mercury.c:7522:5:ln_get_mercury_rst	1
+mercury.c:7534:8:ln_get_mercury_sdiam	1
+mercury.c:7550:6:ln_get_mercury_rect_helio	1

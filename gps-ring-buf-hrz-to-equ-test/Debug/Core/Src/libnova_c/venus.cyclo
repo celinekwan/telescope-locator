@@ -1,0 +1,10 @@
+venus.c:1847:6:ln_get_venus_equ_coords	3
+venus.c:1893:6:ln_get_venus_helio_coords	2
+venus.c:1967:8:ln_get_venus_earth_dist	1
+venus.c:2000:8:ln_get_venus_solar_dist	1
+venus.c:2018:8:ln_get_venus_magnitude	1
+venus.c:2043:8:ln_get_venus_disk	1
+venus.c:2065:8:ln_get_venus_phase	1
+venus.c:2093:5:ln_get_venus_rst	1
+venus.c:2106:8:ln_get_venus_sdiam	1
+venus.c:2122:6:ln_get_venus_rect_helio	1

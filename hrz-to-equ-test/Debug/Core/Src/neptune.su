@@ -1,0 +1,10 @@
+../Core/Src/neptune.c:2137:6:ln_get_neptune_equ_coords	200	static
+../Core/Src/neptune.c:2184:6:ln_get_neptune_helio_coords	176	static
+../Core/Src/neptune.c:2255:8:ln_get_neptune_earth_dist	136	static
+../Core/Src/neptune.c:2288:8:ln_get_neptune_solar_dist	40	static
+../Core/Src/neptune.c:2304:8:ln_get_neptune_magnitude	32	static
+../Core/Src/neptune.c:2324:8:ln_get_neptune_disk	48	static
+../Core/Src/neptune.c:2345:8:ln_get_neptune_phase	56	static
+../Core/Src/neptune.c:2373:5:ln_get_neptune_rst	24	static
+../Core/Src/neptune.c:2385:8:ln_get_neptune_sdiam	32	static
+../Core/Src/neptune.c:2401:6:ln_get_neptune_rect_helio	48	static

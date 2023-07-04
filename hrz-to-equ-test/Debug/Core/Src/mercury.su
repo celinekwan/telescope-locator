@@ -1,0 +1,10 @@
+../Core/Src/mercury.c:7274:6:ln_get_mercury_equ_coords	200	static
+../Core/Src/mercury.c:7321:6:ln_get_mercury_helio_coords	216	static
+../Core/Src/mercury.c:7396:8:ln_get_mercury_earth_dist	136	static
+../Core/Src/mercury.c:7429:8:ln_get_mercury_solar_dist	40	static
+../Core/Src/mercury.c:7447:8:ln_get_mercury_magnitude	64	static
+../Core/Src/mercury.c:7472:8:ln_get_mercury_disk	48	static
+../Core/Src/mercury.c:7494:8:ln_get_mercury_phase	56	static
+../Core/Src/mercury.c:7522:5:ln_get_mercury_rst	24	static
+../Core/Src/mercury.c:7534:8:ln_get_mercury_sdiam	32	static
+../Core/Src/mercury.c:7550:6:ln_get_mercury_rect_helio	48	static

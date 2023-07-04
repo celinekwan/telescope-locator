@@ -1,0 +1,10 @@
+10:15:15 **** Build of configuration Debug for project alt-az-to-ra-dec ****
+make -j16 all 
+arm-none-eabi-size   alt-az-to-ra-dec.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11320	     20	   1700	  13040	   32f0	alt-az-to-ra-dec.elf
+Finished building: default.size.stdout
+ 
+
+10:15:15 Build Finished. 0 errors, 0 warnings. (took 287ms)
+

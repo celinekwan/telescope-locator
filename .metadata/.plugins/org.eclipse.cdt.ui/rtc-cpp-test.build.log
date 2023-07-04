@@ -1,0 +1,10 @@
+10:15:34 **** Build of configuration Debug for project rtc-cpp-test ****
+make -j16 all 
+arm-none-eabi-size   rtc-cpp-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 176868	    768	   7556	 185192	  2d368	rtc-cpp-test.elf
+Finished building: default.size.stdout
+ 
+
+10:15:35 Build Finished. 0 errors, 0 warnings. (took 283ms)
+

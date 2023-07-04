@@ -1,0 +1,4 @@
+../Core/Src/libnova_c/earth.c:2699:6:ln_get_earth_helio_coords	224	static
+../Core/Src/libnova_c/earth.c:2772:8:ln_get_earth_solar_dist	40	static
+../Core/Src/libnova_c/earth.c:2793:6:ln_get_earth_centre_dist	80	static
+../Core/Src/libnova_c/earth.c:2813:6:ln_get_earth_rect_helio	48	static

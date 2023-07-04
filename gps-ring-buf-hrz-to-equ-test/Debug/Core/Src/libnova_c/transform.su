@@ -1,0 +1,11 @@
+../Core/Src/libnova_c/transform.c:35:6:ln_get_rect_from_helio	80	static
+../Core/Src/libnova_c/transform.c:75:6:ln_get_hrz_from_equ	40	static
+../Core/Src/libnova_c/transform.c:85:6:ln_get_hrz_from_equ_sidereal_time	136	static
+../Core/Src/libnova_c/transform.c:155:6:ln_get_equ_from_hrz	112	static
+../Core/Src/libnova_c/transform.c:192:6:ln_get_equ_from_ecl	104	static
+../Core/Src/libnova_c/transform.c:227:6:ln_get_ecl_from_equ	104	static
+../Core/Src/libnova_c/transform.c:256:6:ln_get_ecl_from_rect	32	static
+../Core/Src/libnova_c/transform.c:272:6:ln_get_equ_from_gal	104	static
+../Core/Src/libnova_c/transform.c:303:6:ln_get_equ2000_from_gal	16	static
+../Core/Src/libnova_c/transform.c:316:6:ln_get_gal_from_equ	104	static
+../Core/Src/libnova_c/transform.c:348:6:ln_get_gal_from_equ2000	32	static

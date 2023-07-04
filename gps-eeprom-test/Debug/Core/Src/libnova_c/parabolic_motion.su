@@ -1,0 +1,15 @@
+../Core/Src/libnova_c/parabolic_motion.c:37:8:ln_solve_barker	48	static
+../Core/Src/libnova_c/parabolic_motion.c:59:8:ln_get_par_true_anomaly	40	static
+../Core/Src/libnova_c/parabolic_motion.c:78:8:ln_get_par_radius_vector	32	static
+../Core/Src/libnova_c/parabolic_motion.c:95:6:ln_get_par_helio_rect_posn	200	static
+../Core/Src/libnova_c/parabolic_motion.c:153:6:ln_get_par_geo_rect_posn	96	static
+../Core/Src/libnova_c/parabolic_motion.c:179:6:ln_get_par_body_equ_coords	120	static
+../Core/Src/libnova_c/parabolic_motion.c:215:8:ln_get_par_body_earth_dist	72	static
+../Core/Src/libnova_c/parabolic_motion.c:237:8:ln_get_par_body_solar_dist	72	static
+../Core/Src/libnova_c/parabolic_motion.c:258:8:ln_get_par_body_phase_angle	72	static
+../Core/Src/libnova_c/parabolic_motion.c:285:8:ln_get_par_body_elong	72	static
+../Core/Src/libnova_c/parabolic_motion.c:318:5:ln_get_par_body_rst	32	static
+../Core/Src/libnova_c/parabolic_motion.c:337:5:ln_get_par_body_rst_horizon	40	static
+../Core/Src/libnova_c/parabolic_motion.c:357:5:ln_get_par_body_next_rst	32	static
+../Core/Src/libnova_c/parabolic_motion.c:378:5:ln_get_par_body_next_rst_horizon	40	static
+../Core/Src/libnova_c/parabolic_motion.c:400:5:ln_get_par_body_next_rst_horizon_future	48	static

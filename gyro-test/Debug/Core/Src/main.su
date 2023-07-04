@@ -1,0 +1,15 @@
+../Core/Src/main.c:114:16:wait_for_gpio_state_timeout	32	static,ignoring_inline_asm
+../Core/Src/main.c:137:13:I2C_ClearBusyFlagErratum	40	static,ignoring_inline_asm
+../Core/Src/main.c:220:6:itg_read	56	static
+../Core/Src/main.c:247:6:itg_write	32	static
+../Core/Src/main.c:263:6:itg_init	8	static
+../Core/Src/main.c:274:6:readXYZ	8	static
+../Core/Src/main.c:286:6:calibrateRAW	4	static
+../Core/Src/main.c:292:6:calibrateDEG	4	static
+../Core/Src/main.c:298:6:convert	4	static
+../Core/Src/main.c:315:5:main	8	static
+../Core/Src/main.c:374:6:SystemClock_Config	96	static
+../Core/Src/main.c:424:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:472:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:507:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:547:6:Error_Handler	4	static,ignoring_inline_asm

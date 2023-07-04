@@ -1,0 +1,10 @@
+../Core/Src/libnova_c/uranus.c:5386:6:ln_get_uranus_equ_coords	200	static
+../Core/Src/libnova_c/uranus.c:5433:6:ln_get_uranus_helio_coords	184	static
+../Core/Src/libnova_c/uranus.c:5504:8:ln_get_uranus_earth_dist	136	static
+../Core/Src/libnova_c/uranus.c:5537:8:ln_get_uranus_solar_dist	40	static
+../Core/Src/libnova_c/uranus.c:5554:8:ln_get_uranus_magnitude	32	static
+../Core/Src/libnova_c/uranus.c:5574:8:ln_get_uranus_disk	48	static
+../Core/Src/libnova_c/uranus.c:5596:8:ln_get_uranus_phase	56	static
+../Core/Src/libnova_c/uranus.c:5623:5:ln_get_uranus_rst	24	static
+../Core/Src/libnova_c/uranus.c:5636:8:ln_get_uranus_sdiam	32	static
+../Core/Src/libnova_c/uranus.c:5652:6:ln_get_uranus_rect_helio	48	static

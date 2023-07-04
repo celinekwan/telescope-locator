@@ -1,0 +1,27 @@
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+../Core/Inc/RTClib.h:22:10:uint8_t DateTime::second() const	16	static
+../Core/Inc/RTClib.h:28:10:uint8_t DateTime::minute() const	16	static
+../Core/Inc/RTClib.h:34:10:uint8_t DateTime::hour() const	16	static
+../Core/Inc/RTClib.h:42:10:uint8_t DateTime::day() const	16	static
+../Core/Inc/RTClib.h:48:10:uint8_t DateTime::month() const	16	static
+../Core/Inc/RTClib.h:54:11:uint16_t DateTime::year() const	16	static
+../Core/Src/main.cpp:77:6:void rtc_read_reg_bytes(uint8_t, uint8_t)	40	static
+../Core/Src/main.cpp:92:6:void rtc_read_buf(uint8_t*, uint8_t)	40	static
+../Core/Src/main.cpp:107:9:uint8_t rtc_read_reg(uint8_t)	40	static
+../Core/Src/main.cpp:124:6:void rtc_write_reg(uint8_t, uint8_t)	32	static
+../Core/Src/main.cpp:141:6:void rtc_write_reg_bytes(uint8_t*, uint8_t)	64	dynamic
+../Core/Src/main.cpp:162:6:bool lostPower()	8	static
+../Core/Src/main.cpp:171:9:uint8_t bin2bcd(uint8_t)	16	static
+../Core/Src/main.cpp:182:16:uint8_t dowToDS3231(uint8_t)	16	static
+../Core/Src/main.cpp:188:6:void adjust(const DateTime&)	32	static
+../Core/Src/main.cpp:215:16:uint8_t bcd2bin(uint8_t)	16	static
+../Core/Src/main.cpp:225:10:DateTime now()	72	static
+../Core/Src/main.cpp:255:5:int main()	192	static
+../Core/Src/main.cpp:354:6:void SystemClock_Config()	96	static
+../Core/Src/main.cpp:404:13:void MX_I2C1_Init()	8	static
+../Core/Src/main.cpp:452:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:487:13:void MX_GPIO_Init()	48	static
+../Core/Src/main.cpp:527:6:void Error_Handler()	4	static,ignoring_inline_asm
+../Core/Src/main.cpp:536:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Core/Src/main.cpp:536:1:cpp)	8	static
+../Core/Src/main.cpp:536:1:cpp)	8	static

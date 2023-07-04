@@ -1,0 +1,12 @@
+main.c:131:6:bno055_write_datum	1
+main.c:139:6:bno055_read_data	4
+main.c:155:6:bno055_config	1
+main.c:161:6:bno055_read_calibrate_status	5
+main.c:183:6:bno055_print_calibrate_status	1
+main.c:200:6:print_EUL_data	2
+main.c:235:5:main	1
+main.c:299:6:SystemClock_Config	4
+main.c:349:13:MX_I2C1_Init	4
+main.c:397:13:MX_USART2_UART_Init	2
+main.c:432:13:MX_GPIO_Init	1
+main.c:472:6:Error_Handler	1

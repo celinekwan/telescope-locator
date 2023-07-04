@@ -1,0 +1,10 @@
+pluto.c:246:6:ln_get_pluto_equ_coords	3
+pluto.c:296:6:ln_get_pluto_helio_coords	3
+pluto.c:355:8:ln_get_pluto_earth_dist	1
+pluto.c:387:8:ln_get_pluto_solar_dist	1
+pluto.c:403:8:ln_get_pluto_magnitude	1
+pluto.c:422:8:ln_get_pluto_disk	1
+pluto.c:443:8:ln_get_pluto_phase	1
+pluto.c:471:5:ln_get_pluto_rst	1
+pluto.c:484:8:ln_get_pluto_sdiam	1
+pluto.c:500:6:ln_get_pluto_rect_helio	1

@@ -1,0 +1,74 @@
+10:15:17 **** Build of configuration Debug for project gps-eeprom-rtc-bno-test ****
+make -j16 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void eeprom_write_byte(uint16_t, uint8_t)':
+../Core/Src/main.cpp:178:20: warning: unused variable 'status' [-Wunused-variable]
+  178 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data, 1, 10);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void eeprom_read_bytes(uint16_t, uint8_t)':
+../Core/Src/main.cpp:191:20: warning: unused variable 'status' [-Wunused-variable]
+  191 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data_rec4, numberofbytes, 100);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void rtc_read_reg_bytes(uint8_t, uint8_t)':
+../Core/Src/main.cpp:197:20: warning: unused variable 'status' [-Wunused-variable]
+  197 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, numberofbytes, 100);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void rtc_read_buf(uint8_t*, uint8_t)':
+../Core/Src/main.cpp:202:20: warning: unused variable 'status' [-Wunused-variable]
+  202 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, RTC_ADDR, buf[0], 1, buf, size, 100);// reg = buf[0]
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'uint8_t rtc_read_reg(uint8_t)':
+../Core/Src/main.cpp:207:20: warning: unused variable 'status' [-Wunused-variable]
+  207 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, 1, 100);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void rtc_write_reg(uint8_t, uint8_t)':
+../Core/Src/main.cpp:216:20: warning: unused variable 'status' [-Wunused-variable]
+  216 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, 2, 10);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void rtc_write_reg_bytes(uint8_t*, uint8_t)':
+../Core/Src/main.cpp:228:20: warning: unused variable 'status' [-Wunused-variable]
+  228 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, size, 100);
+      |                    ^~~~~~
+../Core/Src/main.cpp: In function 'void print_EUL_data(uint8_t)':
+../Core/Src/main.cpp:371:19: warning: converting to non-pointer type 'char' from NULL [-Wconversion-null]
+  371 |     disp_buf[i] = NULL;
+      |                   ^~~~
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:473:16: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  473 |   if (Wait_for("GG") == 1) { // "GPGGA" - need "A" for decodeGGA to work properly
+      |                ^~~~
+../Core/Src/main.cpp:474:28: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  474 |    int value_1 = Copy_upto("*", GGA); // 1=successful copy
+      |                            ^~~
+../Core/Src/main.cpp:474:8: warning: unused variable 'value_1' [-Wunused-variable]
+  474 |    int value_1 = Copy_upto("*", GGA); // 1=successful copy
+      |        ^~~~~~~
+../Core/Src/main.cpp:475:8: warning: unused variable 'value_2' [-Wunused-variable]
+  475 |    int value_2 = decodeGGA(GGA,&gpsData.ggastruct); // 0=fixed; 1=error
+      |        ^~~~~~~
+../Core/Src/main.cpp:478:16: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  478 |   if (Wait_for("RM") == 1) { // "GPRMC" - need "C" for decodeRMC to work properly
+      |                ^~~~
+../Core/Src/main.cpp:479:29: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  479 |     int value_3 = Copy_upto("*", RMC); // 1=successful copy
+      |                             ^~~
+../Core/Src/main.cpp:479:9: warning: unused variable 'value_3' [-Wunused-variable]
+  479 |     int value_3 = Copy_upto("*", RMC); // 1=successful copy
+      |         ^~~~~~~
+../Core/Src/main.cpp:480:9: warning: unused variable 'value_4' [-Wunused-variable]
+  480 |     int value_4 = decodeRMC(RMC,&gpsData.rmcstruct); // 0=fixed; 1=error
+      |         ^~~~~~~
+arm-none-eabi-g++ -o "gps-eeprom-rtc-bno-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-eeprom-rtc-bno-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-eeprom-rtc-bno-test.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: gps-eeprom-rtc-bno-test.elf
+ 
+arm-none-eabi-size   gps-eeprom-rtc-bno-test.elf 
+arm-none-eabi-objdump -h -S  gps-eeprom-rtc-bno-test.elf  > "gps-eeprom-rtc-bno-test.list"
+   text	   data	    bss	    dec	    hex	filename
+ 189472	    776	   9212	 199460	  30b24	gps-eeprom-rtc-bno-test.elf
+Finished building: default.size.stdout
+ 
+Finished building: gps-eeprom-rtc-bno-test.list
+ 
+
+10:15:21 Build Finished. 0 errors, 16 warnings. (took 3s.871ms)
+

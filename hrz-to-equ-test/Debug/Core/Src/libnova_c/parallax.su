@@ -1,0 +1,3 @@
+../Core/Src/libnova_c/parallax.c:26:6:get_topocentric	96	static
+../Core/Src/libnova_c/parallax.c:54:6:ln_get_parallax	64	static
+../Core/Src/libnova_c/parallax.c:81:6:ln_get_parallax_ha	120	static

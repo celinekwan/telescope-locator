@@ -1,0 +1,2 @@
+../Core/Src/proper_motion.c:37:6:ln_get_equ_pm	32	static
+../Core/Src/proper_motion.c:54:6:ln_get_equ_pm_epoch	56	static

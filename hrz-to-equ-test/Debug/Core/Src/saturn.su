@@ -1,0 +1,11 @@
+../Core/Src/saturn.c:6502:6:ln_get_saturn_equ_coords	200	static
+../Core/Src/saturn.c:6548:6:ln_get_saturn_helio_coords	216	static
+../Core/Src/saturn.c:6622:8:ln_get_saturn_earth_dist	136	static
+../Core/Src/saturn.c:6655:8:ln_get_saturn_solar_dist	40	static
+../Core/Src/saturn.c:6673:8:ln_get_saturn_magnitude	32	static
+../Core/Src/saturn.c:6693:8:ln_get_saturn_disk	48	static
+../Core/Src/saturn.c:6714:8:ln_get_saturn_phase	56	static
+../Core/Src/saturn.c:6741:5:ln_get_saturn_rst	24	static
+../Core/Src/saturn.c:6753:8:ln_get_saturn_equ_sdiam	32	static
+../Core/Src/saturn.c:6770:8:ln_get_saturn_pol_sdiam	32	static
+../Core/Src/saturn.c:6787:6:ln_get_saturn_rect_helio	48	static

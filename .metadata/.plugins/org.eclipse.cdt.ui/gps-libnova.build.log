@@ -1,0 +1,42 @@
+10:15:24 **** Build of configuration Debug for project gps-libnova ****
+make -j16 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fexceptions -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:162:15: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  162 |  if (Wait_for("GG") == 1) { // "GPGGA" - need "A" for decodeGGA to work properly
+      |               ^~~~
+../Core/Src/main.cpp:163:28: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  163 |    int value_1 = Copy_upto("*", GGA); // 1=successful copy
+      |                            ^~~
+../Core/Src/main.cpp:163:8: warning: unused variable 'value_1' [-Wunused-variable]
+  163 |    int value_1 = Copy_upto("*", GGA); // 1=successful copy
+      |        ^~~~~~~
+../Core/Src/main.cpp:164:8: warning: unused variable 'value_2' [-Wunused-variable]
+  164 |    int value_2 = decodeGGA(GGA,&gpsData.ggastruct); // 0=fixed; 1=error
+      |        ^~~~~~~
+../Core/Src/main.cpp:167:15: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  167 |  if (Wait_for("RM") == 1) { // "GPRMC" - need "C" for decodeRMC to work properly
+      |               ^~~~
+../Core/Src/main.cpp:168:28: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |    int value_3 = Copy_upto("*", RMC); // 1=successful copy
+      |                            ^~~
+../Core/Src/main.cpp:168:8: warning: unused variable 'value_3' [-Wunused-variable]
+  168 |    int value_3 = Copy_upto("*", RMC); // 1=successful copy
+      |        ^~~~~~~
+../Core/Src/main.cpp:169:8: warning: unused variable 'value_4' [-Wunused-variable]
+  169 |    int value_4 = decodeRMC(RMC,&gpsData.rmcstruct); // 0=fixed; 1=error
+      |        ^~~~~~~
+arm-none-eabi-g++ -o "gps-libnova.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-libnova\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-libnova.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: gps-libnova.elf
+ 
+arm-none-eabi-size   gps-libnova.elf 
+arm-none-eabi-objdump -h -S  gps-libnova.elf  > "gps-libnova.list"
+   text	   data	    bss	    dec	    hex	filename
+  63136	    488	   3448	  67072	  10600	gps-libnova.elf
+Finished building: default.size.stdout
+ 
+Finished building: gps-libnova.list
+ 
+
+10:15:26 Build Finished. 0 errors, 8 warnings. (took 2s.295ms)
+

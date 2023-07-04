@@ -1,0 +1,7 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+RTClib.cpp:25:1:DateTime::DateTime(uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	2
+RTClib.cpp:54:17:uint16_t date2days(uint16_t, uint8_t, uint8_t)	6
+RTClib.cpp:71:9:uint8_t DateTime::dayOfTheWeek() const	1
+RTClib.cpp:74:1:void __static_initialization_and_destruction_0(int, int)	5
+RTClib.cpp:74:1:cpp)	1
+RTClib.cpp:74:1:cpp)	1

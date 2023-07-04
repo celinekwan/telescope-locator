@@ -1,0 +1,7 @@
+../Core/Src/libnova_c/dynamical_time.c:89:15:get_dynamical_diff_sh1	40	static
+../Core/Src/libnova_c/dynamical_time.c:101:15:get_dynamical_diff_sh2	32	static
+../Core/Src/libnova_c/dynamical_time.c:114:15:get_dynamical_diff_table	88	static
+../Core/Src/libnova_c/dynamical_time.c:140:15:get_dynamical_diff_near	104	static
+../Core/Src/libnova_c/dynamical_time.c:160:15:get_dynamical_diff_other	32	static
+../Core/Src/libnova_c/dynamical_time.c:182:8:ln_get_dynamical_time_diff	24	static
+../Core/Src/libnova_c/dynamical_time.c:215:8:ln_get_jde	32	static

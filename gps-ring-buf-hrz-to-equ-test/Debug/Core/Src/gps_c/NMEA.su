@@ -1,0 +1,2 @@
+../Core/Src/gps_c/NMEA.c:36:5:decodeGGA	72	static
+../Core/Src/gps_c/NMEA.c:202:5:decodeRMC	88	static

@@ -1,0 +1,16 @@
+julian_day.c:40:8:ln_get_julian_day	8
+julian_day.c:88:14:ln_get_day_of_week	1
+julian_day.c:107:6:ln_get_date	5
+julian_day.c:157:6:ln_get_date_from_timet	1
+julian_day.c:173:6:ln_get_date_from_tm	1
+julian_day.c:189:6:ln_get_date_from_sys	1
+julian_day.c:217:8:ln_get_julian_from_timet	1
+math.h:318:15:round	1
+julian_day.c:239:6:ln_get_timet_from_julian	1
+julian_day.c:249:8:ln_get_julian_from_sys	1
+julian_day.c:267:8:ln_get_julian_local_date	1
+julian_day.c:283:6:ln_get_local_date	1
+julian_day.c:320:5:ln_get_date_from_mpc	6
+julian_day.c:375:8:ln_get_julian_from_mpc	1
+julian_day.c:393:6:ln_date_to_zonedate	1
+julian_day.c:418:6:ln_zonedate_to_date	1

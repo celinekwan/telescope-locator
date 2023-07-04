@@ -1,0 +1,2 @@
+../Core/Src/airmass.c:33:8:ln_get_airmass	40	static
+../Core/Src/airmass.c:45:8:ln_get_alt_from_airmass	32	static

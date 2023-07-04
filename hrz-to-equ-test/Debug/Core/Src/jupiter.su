@@ -1,0 +1,11 @@
+../Core/Src/jupiter.c:3762:6:ln_get_jupiter_equ_coords	200	static
+../Core/Src/jupiter.c:3808:6:ln_get_jupiter_helio_coords	216	static
+../Core/Src/jupiter.c:3881:8:ln_get_jupiter_earth_dist	136	static
+../Core/Src/jupiter.c:3913:8:ln_get_jupiter_solar_dist	40	static
+../Core/Src/jupiter.c:3929:8:ln_get_jupiter_magnitude	48	static
+../Core/Src/jupiter.c:3952:8:ln_get_jupiter_disk	48	static
+../Core/Src/jupiter.c:3973:8:ln_get_jupiter_phase	56	static
+../Core/Src/jupiter.c:4001:5:ln_get_jupiter_rst	24	static
+../Core/Src/jupiter.c:4014:8:ln_get_jupiter_equ_sdiam	32	static
+../Core/Src/jupiter.c:4031:8:ln_get_jupiter_pol_sdiam	32	static
+../Core/Src/jupiter.c:4047:6:ln_get_jupiter_rect_helio	48	static

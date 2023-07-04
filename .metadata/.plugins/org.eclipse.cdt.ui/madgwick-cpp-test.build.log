@@ -1,0 +1,10 @@
+10:15:33 **** Build of configuration Debug for project madgwick-cpp-test ****
+make -j16 all 
+arm-none-eabi-size   madgwick-cpp-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31816	    484	   1724	  34024	   84e8	madgwick-cpp-test.elf
+Finished building: default.size.stdout
+ 
+
+10:15:34 Build Finished. 0 errors, 0 warnings. (took 234ms)
+

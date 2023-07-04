@@ -1,0 +1,2 @@
+angular_separation.c:33:8:ln_get_angular_separation	1
+angular_separation.c:65:8:ln_get_rel_posn_angle	1

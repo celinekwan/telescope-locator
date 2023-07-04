@@ -1,0 +1,15 @@
+hyperbolic_motion.c:45:8:ln_solve_hyp_barker	8
+hyperbolic_motion.c:98:8:ln_get_hyp_true_anomaly	1
+hyperbolic_motion.c:122:8:ln_get_hyp_radius_vector	1
+hyperbolic_motion.c:135:6:ln_get_hyp_helio_rect_posn	1
+hyperbolic_motion.c:193:6:ln_get_hyp_geo_rect_posn	1
+hyperbolic_motion.c:219:6:ln_get_hyp_body_equ_coords	1
+hyperbolic_motion.c:254:8:ln_get_hyp_body_earth_dist	1
+hyperbolic_motion.c:276:8:ln_get_hyp_body_solar_dist	1
+hyperbolic_motion.c:297:8:ln_get_hyp_body_phase_angle	1
+hyperbolic_motion.c:324:8:ln_get_hyp_body_elong	1
+hyperbolic_motion.c:357:5:ln_get_hyp_body_rst	1
+hyperbolic_motion.c:376:5:ln_get_hyp_body_rst_horizon	1
+hyperbolic_motion.c:396:5:ln_get_hyp_body_next_rst	1
+hyperbolic_motion.c:417:5:ln_get_hyp_body_next_rst_horizon	1
+hyperbolic_motion.c:439:5:ln_get_hyp_body_next_rst_horizon_future	1

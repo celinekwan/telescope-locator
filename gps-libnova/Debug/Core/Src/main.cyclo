@@ -1,0 +1,8 @@
+gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+DMS.hpp:384:17:static void GeographicLib::DMS::Encode(GeographicLib::DMS::real, GeographicLib::DMS::real&, GeographicLib::DMS::real&, GeographicLib::DMS::real&)	1
+main.cpp:117:5:int main()	9
+main.cpp:321:6:void SystemClock_Config()	4
+main.cpp:371:13:void MX_USART1_UART_Init()	2
+main.cpp:406:13:void MX_USART2_UART_Init()	2
+main.cpp:441:13:void MX_GPIO_Init()	1
+main.cpp:481:6:void Error_Handler()	1
