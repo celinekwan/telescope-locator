@@ -6,41 +6,43 @@ RTClib.h:42:10:uint8_t DateTime::day() const	1
 RTClib.h:48:10:uint8_t DateTime::month() const	1
 RTClib.h:54:11:uint16_t DateTime::year() const	1
 DMS.hpp:384:17:static void GeographicLib::DMS::Encode(GeographicLib::DMS::real, GeographicLib::DMS::real&, GeographicLib::DMS::real&, GeographicLib::DMS::real&)	1
-main.cpp:281:6:void eeprom_write_byte(uint16_t, uint8_t)	1
-main.cpp:288:6:void eeprom_write_bytes(uint16_t, uint8_t*, uint8_t)	2
-main.cpp:296:6:void eeprom_read_bytes(uint16_t, uint8_t)	1
-main.cpp:302:6:void rtc_read_reg_bytes(uint8_t, uint8_t)	1
-main.cpp:307:6:void rtc_read_buf(uint8_t*, uint8_t)	1
-main.cpp:312:9:uint8_t rtc_read_reg(uint8_t)	1
-main.cpp:318:6:void rtc_write_reg(uint8_t, uint8_t)	1
-main.cpp:326:6:void rtc_write_reg_bytes(uint8_t*, uint8_t)	3
-main.cpp:337:6:bool lostPower()	1
-main.cpp:346:9:uint8_t bin2bcd(uint8_t)	1
-main.cpp:357:16:uint8_t dowToDS3231(uint8_t)	2
-main.cpp:365:6:void adjust(const DateTime&)	1
-main.cpp:392:16:uint8_t bcd2bin(uint8_t)	1
-main.cpp:400:10:DateTime now()	1
-main.cpp:420:6:void bno055_write_datum(uint8_t, uint8_t)	1
-main.cpp:428:6:void bno055_read_data(uint8_t, uint8_t)	1
-main.cpp:444:6:void bno055_config()	1
-main.cpp:450:6:void bno055_read_calibrate_status()	5
-main.cpp:473:6:void bno055_print_calibrate_status()	1
-main.cpp:490:6:void print_EUL_data(uint8_t)	2
-main.cpp:518:6:void init_buf123()	2
-main.cpp:537:6:void I2Csendcmd(uint8_t, uint8_t)	1
-main.cpp:555:6:void I2Csenddatum(uint8_t, uint8_t)	1
-main.cpp:563:6:void I2Cread(uint8_t)	1
-main.cpp:569:6:void screen_init()	1
-main.cpp:586:6:void screen_write_string(char*)	5
-main.cpp:614:6:void screen_write_xyz(float, float, float)	2
-main.cpp:639:6:void screen_write_accel_data(float, float, float)	1
-main.cpp:698:5:int main()	29
-main.cpp:1107:6:void SystemClock_Config()	4
-main.cpp:1157:13:void MX_I2C1_Init()	4
-main.cpp:1205:13:void MX_USART1_UART_Init()	2
-main.cpp:1240:13:void MX_USART2_UART_Init()	2
-main.cpp:1275:13:void MX_GPIO_Init()	1
-main.cpp:1323:6:void Error_Handler()	1
-main.cpp:1332:1:void __static_initialization_and_destruction_0(int, int)	5
-main.cpp:1332:1:cpp)	1
-main.cpp:1332:1:cpp)	1
+main.cpp:283:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	4
+main.cpp:301:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	1
+main.cpp:309:6:void eeprom_write_byte(uint16_t, uint8_t)	1
+main.cpp:316:6:void eeprom_write_bytes(uint16_t, uint8_t*, uint8_t)	2
+main.cpp:324:6:void eeprom_read_bytes(uint16_t, uint8_t)	1
+main.cpp:330:6:void rtc_read_reg_bytes(uint8_t, uint8_t)	1
+main.cpp:335:6:void rtc_read_buf(uint8_t*, uint8_t)	1
+main.cpp:340:9:uint8_t rtc_read_reg(uint8_t)	1
+main.cpp:346:6:void rtc_write_reg(uint8_t, uint8_t)	1
+main.cpp:354:6:void rtc_write_reg_bytes(uint8_t*, uint8_t)	3
+main.cpp:365:6:bool lostPower()	1
+main.cpp:374:9:uint8_t bin2bcd(uint8_t)	1
+main.cpp:385:16:uint8_t dowToDS3231(uint8_t)	2
+main.cpp:393:6:void adjust(const DateTime&)	1
+main.cpp:420:16:uint8_t bcd2bin(uint8_t)	1
+main.cpp:428:10:DateTime now()	1
+main.cpp:448:6:void bno055_write_datum(uint8_t, uint8_t)	1
+main.cpp:456:6:void bno055_read_data(uint8_t, uint8_t)	1
+main.cpp:472:6:void bno055_config()	1
+main.cpp:478:6:void bno055_read_calibrate_status()	5
+main.cpp:501:6:void bno055_print_calibrate_status()	1
+main.cpp:518:6:void print_EUL_data(uint8_t)	2
+main.cpp:546:6:void init_buf123()	2
+main.cpp:565:6:void I2Csendcmd(uint8_t, uint8_t)	1
+main.cpp:583:6:void I2Csenddatum(uint8_t, uint8_t)	1
+main.cpp:591:6:void I2Cread(uint8_t)	1
+main.cpp:597:6:void screen_init()	1
+main.cpp:614:6:void screen_write_string(char*)	5
+main.cpp:642:6:void screen_write_xyz(float, float, float)	2
+main.cpp:667:6:void screen_write_accel_data(float, float, float)	1
+main.cpp:726:5:int main()	24
+main.cpp:1149:6:void SystemClock_Config()	4
+main.cpp:1199:13:void MX_I2C1_Init()	4
+main.cpp:1247:13:void MX_USART1_UART_Init()	2
+main.cpp:1282:13:void MX_USART2_UART_Init()	2
+main.cpp:1317:13:void MX_GPIO_Init()	1
+main.cpp:1365:6:void Error_Handler()	1
+main.cpp:1374:1:void __static_initialization_and_destruction_0(int, int)	5
+main.cpp:1374:1:cpp)	1
+main.cpp:1374:1:cpp)	1

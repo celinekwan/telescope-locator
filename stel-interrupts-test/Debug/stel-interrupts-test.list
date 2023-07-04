@@ -435,7 +435,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  800055c:	d9f4      	bls.n	8000548 <HAL_UART_RxCpltCallback+0x5c>
 	}
 
-	HAL_UART_Receive_IT(&huart2, stel_cmds, 5);
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)stel_cmds, 5);
  800055e:	2205      	movs	r2, #5
  8000560:	4904      	ldr	r1, [pc, #16]	; (8000574 <HAL_UART_RxCpltCallback+0x88>)
  8000562:	4809      	ldr	r0, [pc, #36]	; (8000588 <HAL_UART_RxCpltCallback+0x9c>)
@@ -504,13 +504,13 @@ int main(void)
   MX_USART2_UART_Init();
  80005b8:	f000 f87a 	bl	80006b0 <MX_USART2_UART_Init>
   /* USER CODE BEGIN 2 */
-  strcpy(ra_str,"16:29:25#");
+  strcpy(ra_str,"18:36:58#");
  80005bc:	4b0d      	ldr	r3, [pc, #52]	; (80005f4 <main+0x4c>)
  80005be:	4a0e      	ldr	r2, [pc, #56]	; (80005f8 <main+0x50>)
  80005c0:	ca07      	ldmia	r2, {r0, r1, r2}
  80005c2:	c303      	stmia	r3!, {r0, r1}
  80005c4:	801a      	strh	r2, [r3, #0]
-  strcpy(dec_str,"-26'25:59#");
+  strcpy(dec_str,"+38'47:12#");
  80005c6:	4b0d      	ldr	r3, [pc, #52]	; (80005fc <main+0x54>)
  80005c8:	4a0d      	ldr	r2, [pc, #52]	; (8000600 <main+0x58>)
  80005ca:	ca07      	ldmia	r2, {r0, r1, r2}
@@ -519,7 +519,7 @@ int main(void)
  80005d0:	3302      	adds	r3, #2
  80005d2:	0c12      	lsrs	r2, r2, #16
  80005d4:	701a      	strb	r2, [r3, #0]
-  HAL_UART_Receive_IT (&huart2, stel_cmds, 5);
+  HAL_UART_Receive_IT (&huart2, (uint8_t*)stel_cmds, 5);
  80005d6:	2205      	movs	r2, #5
  80005d8:	490a      	ldr	r1, [pc, #40]	; (8000604 <main+0x5c>)
  80005da:	480b      	ldr	r0, [pc, #44]	; (8000608 <main+0x60>)

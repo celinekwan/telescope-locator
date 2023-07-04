@@ -233,9 +233,9 @@ char buf3[50] = {0};
 char buf4[50] = {0};
 
 // Stellarium *****************************
-char * buf1_stel;
-char * buf2_stel;
-char * buf3_stel;
+char * buf1_stel = {0};
+char * buf2_stel = {0};
+char * buf3_stel = {0};
 int random_counter = 0;
 int sizeof_ra = 0;
 int temp;
@@ -245,14 +245,18 @@ HAL_StatusTypeDef status_transmit_dec;
 int result1;
 int result2;
 
-char ra_str[9]={0};
-char dec_str[10]={0};
+char ra_str[10]={0};
+char dec_str[11]={0};
 char stel_cmds[5] = {0};
 
 // LCD Screen
 float xg, yg, zg;
 
 // Function Declarations ==========================================
+
+// UART Interrupts *************************
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 
 // EEPROM **********************************
 void eeprom_write_byte (uint16_t addr, uint8_t value);
@@ -275,6 +279,30 @@ void bno055_read_data (uint8_t reg, uint8_t numberofbytes);
 void screen_write_string(char string_to_write[]);
 
 // Function Definitions ==========================================
+// UART Interrupts - Stellarium ************
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	result1 = strcmp(stel_cmds, "#:GR#");
+	result2 = strcmp(stel_cmds, "#:GD#");
+
+	if (result1==0) {
+	  HAL_UART_Transmit_IT(&huart2, (uint8_t*)ra_str, 9);
+	} else if (result2==0) {
+	  HAL_UART_Transmit_IT(&huart2, (uint8_t*)dec_str, 10);
+	}
+
+	for (int i=0; i<sizeof(stel_cmds); i++) {
+		stel_cmds[i] = 0;
+	}
+
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)stel_cmds, 5);
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+   // do nothing here
+}
+
 
 // EEPROM **********************************
 // writes one byte
@@ -828,11 +856,17 @@ int main(void)
 	buf2_stel = (char*)malloc(128);
 	buf3_stel = (char*)malloc(128);
 
-	char *pound = "#";
-	char *pos = "+";
-	char *neg = "-";
+//	char *pound = "#";
+//	char *pos = "+";
+//	char *neg = "-";
 
 	init_buf123();
+
+	// Initialize RA/DEC strings with random coordinate
+	strcpy(ra_str,"18:36:58#");
+	strcpy(dec_str,"+38'47:12#");
+	// Start Receiving commands from Stellarium
+	HAL_UART_Receive_IT (&huart2, (uint8_t*)stel_cmds, 5);
 
   /* USER CODE END 2 */
 
@@ -1008,6 +1042,14 @@ int main(void)
 	//	snprintf(buf3_stel, 128, "% .4f", ra_ss);
 	snprintf(buf3_stel, 128, "%u", (short)ra_ss);
 
+	// clear ra_str and dec_str buffers
+	for (int i=0; i<sizeof(ra_str); i++) {
+		ra_str[i] = 0;
+	}
+	for (int i=0; i<sizeof(dec_str); i++) {
+		dec_str[i] = 0;
+	}
+
 	if (ra_hh < 10) { // pad 0
 		strcpy(ra_str,"0");
 		strcat(ra_str,buf1_stel);
@@ -1020,7 +1062,7 @@ int main(void)
 	strcat(ra_str,":");
 	if (ra_ss < 10) { strcat(ra_str,"0");}
 	strcat(ra_str,buf3_stel);
-	strcat(ra_str,pound);
+	strcat(ra_str,"#");
 
 	// clear buffers
 	init_buf123();
@@ -1031,9 +1073,9 @@ int main(void)
 	snprintf(buf3_stel, 128, "%u", (short)dec_ss);
 
 	if (dec_neg == 0) {
-		strcpy(dec_str,pos);
+		strcpy(dec_str,"+");
 	} else {
-		strcpy(dec_str,neg);
+		strcpy(dec_str,"-");
 	}
 	if (dec_dd < 10) { strcat(dec_str,"0");}
 	strcat(dec_str,buf1_stel);
@@ -1043,7 +1085,7 @@ int main(void)
 	strcat(dec_str,":");
 	if (dec_ss < 10) { strcat(dec_str,"0");}
 	strcat(dec_str,buf3_stel);
-	strcat(dec_str,pound);
+	strcat(dec_str,"#");
 
 	// check ra_str and dec_str -- without stellarium
 //	HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n\n Stellarium strings:\n", sizeof("\r\n\n Stellarium strings:\n"), 10);
@@ -1052,40 +1094,40 @@ int main(void)
 //	HAL_UART_Transmit(&huart2, (uint8_t*)dec_str, sizeof(dec_str), 10);
 
 	// Detect commands from Stellarium *****************************************************************
-	status_stel = HAL_UART_Receive(&huart2, (uint8_t*)stel_cmds, sizeof(stel_cmds), 1000);
-	random_counter++;
-
-	if (status_stel == HAL_TIMEOUT) {
-	  random_counter++; // for breakpoint/debugging
-	} else if (status_stel == HAL_ERROR) {
-	  random_counter++;
-	} else if (status_stel == HAL_BUSY) {
-	  random_counter++;
-	} else if (status_stel == HAL_OK) {
-
-	  result1 = strcmp(stel_cmds, "#:GR#");
-	  result2 = strcmp(stel_cmds, "#:GD#");
-
-	  sizeof_ra = sizeof(ra_str);
-
-	  if (result1==0) {
-		  status_transmit_ra = HAL_UART_Transmit(&huart2, (uint8_t*)ra_str, sizeof(ra_str), 10);
-		  ra_mm += 5;
-		  random_counter ++ ;
-	  }
-
-	  if (result2==0) {
-		  status_transmit_dec = HAL_UART_Transmit(&huart2, (uint8_t*)dec_str, sizeof(dec_str), 10);
-		  dec_mm += 5;
-		  random_counter ++ ;
-	  }
-
-	}
-
-	// clear buffer
-	for (int i=0; i<5; i++) {
-	  stel_cmds[i] = 0;
-	}
+//	status_stel = HAL_UART_Receive(&huart2, (uint8_t*)stel_cmds, sizeof(stel_cmds), 1000);
+//	random_counter++;
+//
+//	if (status_stel == HAL_TIMEOUT) {
+//	  random_counter++; // for breakpoint/debugging
+//	} else if (status_stel == HAL_ERROR) {
+//	  random_counter++;
+//	} else if (status_stel == HAL_BUSY) {
+//	  random_counter++;
+//	} else if (status_stel == HAL_OK) {
+//
+//	  result1 = strcmp(stel_cmds, "#:GR#");
+//	  result2 = strcmp(stel_cmds, "#:GD#");
+//
+//	  sizeof_ra = sizeof(ra_str);
+//
+//	  if (result1==0) {
+//		  status_transmit_ra = HAL_UART_Transmit(&huart2, (uint8_t*)ra_str, sizeof(ra_str), 10);
+//		  ra_mm += 5;
+//		  random_counter ++ ;
+//	  }
+//
+//	  if (result2==0) {
+//		  status_transmit_dec = HAL_UART_Transmit(&huart2, (uint8_t*)dec_str, sizeof(dec_str), 10);
+//		  dec_mm += 5;
+//		  random_counter ++ ;
+//	  }
+//
+//	}
+//
+//	// clear buffer
+//	for (int i=0; i<5; i++) {
+//	  stel_cmds[i] = 0;
+//	}
 
 	//	  ========== Wait 1s for the time to increment per second ==================================
 //	HAL_Delay(1000);

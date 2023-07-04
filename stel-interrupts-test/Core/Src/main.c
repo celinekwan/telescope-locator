@@ -52,7 +52,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-uint8_t stel_cmds[5] = {0};
+char stel_cmds[5] = {0};
 char ra_str[9] = {0};
 char dec_str[10] = {0};
 int result1;
@@ -75,7 +75,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		stel_cmds[i] = 0;
 	}
 
-	HAL_UART_Receive_IT(&huart2, stel_cmds, 5);
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)stel_cmds, 5);
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
@@ -120,9 +120,9 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  strcpy(ra_str,"16:29:25#");
-  strcpy(dec_str,"-26'25:59#");
-  HAL_UART_Receive_IT (&huart2, stel_cmds, 5);
+  strcpy(ra_str,"18:36:58#");
+  strcpy(dec_str,"+38'47:12#");
+  HAL_UART_Receive_IT (&huart2, (uint8_t*)stel_cmds, 5);
 
   /* USER CODE END 2 */
 

@@ -33,3 +33,7 @@ status_transmit_ra
 status_transmit_dec
 sizeof_ra
 random_counter
+string_to_LCD
+buf1_stel
+buf2_stel
+buf3_stel

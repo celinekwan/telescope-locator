@@ -8,3 +8,4 @@ stm32l4xx_it.cpp:158:6:void DebugMon_Handler()	1
 stm32l4xx_it.cpp:171:6:void PendSV_Handler()	1
 stm32l4xx_it.cpp:184:6:void SysTick_Handler()	1
 stm32l4xx_it.cpp:205:6:void USART1_IRQHandler()	1
+stm32l4xx_it.cpp:221:6:void USART2_IRQHandler()	1
