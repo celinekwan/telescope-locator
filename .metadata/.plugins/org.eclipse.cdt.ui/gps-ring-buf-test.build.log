@@ -1,10 +1,10 @@
-10:15:28 **** Build of configuration Debug for project gps-ring-buf-test ****
+14:52:26 **** Incremental Build of configuration Debug for project gps-ring-buf-test ****
 make -j16 all 
 arm-none-eabi-size   gps-ring-buf-test.elf 
    text	   data	    bss	    dec	    hex	filename
-  25128	    120	   3184	  28432	   6f10	gps-ring-buf-test.elf
+  38520	    492	   3332	  42344	   a568	gps-ring-buf-test.elf
 Finished building: default.size.stdout
  
 
-10:15:28 Build Finished. 0 errors, 0 warnings. (took 284ms)
+14:52:27 Build Finished. 0 errors, 0 warnings. (took 351ms)
 

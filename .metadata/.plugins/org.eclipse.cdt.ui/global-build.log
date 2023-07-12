@@ -1,147 +1,69 @@
-13:24:08 **** Incremental Build of configuration Debug for project gps-eeprom-test ****
+13:06:58 **** Incremental Build of configuration Debug for project F411-test ****
 make -j16 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fexceptions -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.cpp: In function 'void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)':
-../Core/Src/main.cpp:296:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
-  296 |  for (int i=0; i<sizeof(stel_cmds); i++) {
-      |                ~^~~~~~~~~~~~~~~~~~
-../Core/Src/main.cpp: In function 'void eeprom_write_byte(uint16_t, uint8_t)':
-../Core/Src/main.cpp:314:20: warning: unused variable 'status' [-Wunused-variable]
-  314 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data, 1, 10);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void eeprom_read_bytes(uint16_t, uint8_t)':
-../Core/Src/main.cpp:327:20: warning: unused variable 'status' [-Wunused-variable]
-  327 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data_rec4, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_read_reg_bytes(uint8_t, uint8_t)':
-../Core/Src/main.cpp:333:20: warning: unused variable 'status' [-Wunused-variable]
-  333 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_read_buf(uint8_t*, uint8_t)':
-../Core/Src/main.cpp:338:20: warning: unused variable 'status' [-Wunused-variable]
-  338 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, RTC_ADDR, buf[0], 1, buf, size, 100);// reg = buf[0]
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'uint8_t rtc_read_reg(uint8_t)':
-../Core/Src/main.cpp:343:20: warning: unused variable 'status' [-Wunused-variable]
-  343 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, 1, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_write_reg(uint8_t, uint8_t)':
-../Core/Src/main.cpp:352:20: warning: unused variable 'status' [-Wunused-variable]
-  352 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, 2, 10);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_write_reg_bytes(uint8_t*, uint8_t)':
-../Core/Src/main.cpp:364:20: warning: unused variable 'status' [-Wunused-variable]
-  364 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, size, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void bno055_read_data(uint8_t, uint8_t)':
-../Core/Src/main.cpp:460:20: warning: unused variable 'status' [-Wunused-variable]
-  460 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, BNO055_ADDRESS, reg, 1, data_rec_bno, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void init_buf123()':
-../Core/Src/main.cpp:550:19: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
-  550 |    for (int i=0; i<sizeof(buf1_stel); i++) {
-      |                  ~^~~~~~~~~~~~~~~~~~
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:1048:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
- 1048 |  for (int i=0; i<sizeof(ra_str); i++) {
-      |                ~^~~~~~~~~~~~~~~
-../Core/Src/main.cpp:1051:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
- 1051 |  for (int i=0; i<sizeof(dec_str); i++) {
-      |                ~^~~~~~~~~~~~~~~~
-../Core/Src/main.cpp:929:6: warning: variable 'neg_lng' set but not used [-Wunused-but-set-variable]
-  929 |  int neg_lng = 0;
-      |      ^~~~~~~
-../Core/Src/main.cpp:985:9: warning: unused variable 'az' [-Wunused-variable]
-  985 |  double az = hrz.az;
-      |         ^~
-../Core/Src/main.cpp:986:9: warning: unused variable 'alt' [-Wunused-variable]
-  986 |  double alt = hrz.alt;
-      |         ^~~
-arm-none-eabi-g++ -o "gps-eeprom-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-eeprom-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-eeprom-test.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: gps-eeprom-test.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'display_data':
+../Core/Src/main.c:96:20: warning: '% 4f' directive writing between 4 and 317 bytes into a region of size 4 [-Wformat-overflow=]
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |                    ^~~~
+../Core/Src/main.c:96:19: note: assuming directive output of 9 bytes
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |                   ^~~~~~
+../Core/Src/main.c:96:2: note: 'sprintf' output between 5 and 318 bytes into a destination of size 4
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "F411-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\F411-test\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F411-test.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: F411-test.elf
  
-arm-none-eabi-size   gps-eeprom-test.elf 
-arm-none-eabi-objdump -h -S  gps-eeprom-test.elf  > "gps-eeprom-test.list"
+arm-none-eabi-size   F411-test.elf 
+arm-none-eabi-objdump -h -S  F411-test.elf  > "F411-test.list"
    text	   data	    bss	    dec	    hex	filename
- 222864	    784	   9760	 233408	  38fc0	gps-eeprom-test.elf
+  51012	    724	   8948	  60684	   ed0c	F411-test.elf
 Finished building: default.size.stdout
  
-Finished building: gps-eeprom-test.list
+Finished building: F411-test.list
  
-13:24:43 **** Incremental Build of configuration Debug for project gps-eeprom-test ****
+13:07:04 **** Incremental Build of configuration Debug for project F411-test ****
 make -j16 all 
-arm-none-eabi-size   gps-eeprom-test.elf 
+arm-none-eabi-size   F411-test.elf 
    text	   data	    bss	    dec	    hex	filename
- 222864	    784	   9760	 233408	  38fc0	gps-eeprom-test.elf
+  51012	    724	   8948	  60684	   ed0c	F411-test.elf
 Finished building: default.size.stdout
  
-13:25:31 **** Incremental Build of configuration Debug for project gps-eeprom-test ****
+13:08:39 **** Incremental Build of configuration Debug for project F411-test ****
 make -j16 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L452xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fexceptions -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.cpp: In function 'void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)':
-../Core/Src/main.cpp:294:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
-  294 |  for (int i=0; i<sizeof(stel_cmds); i++) {
-      |                ~^~~~~~~~~~~~~~~~~~
-../Core/Src/main.cpp: In function 'void eeprom_write_byte(uint16_t, uint8_t)':
-../Core/Src/main.cpp:312:20: warning: unused variable 'status' [-Wunused-variable]
-  312 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Write(&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data, 1, 10);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void eeprom_read_bytes(uint16_t, uint8_t)':
-../Core/Src/main.cpp:325:20: warning: unused variable 'status' [-Wunused-variable]
-  325 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, EEPROM_ADDR, addr, I2C_MEMADD_SIZE_16BIT, data_rec4, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_read_reg_bytes(uint8_t, uint8_t)':
-../Core/Src/main.cpp:331:20: warning: unused variable 'status' [-Wunused-variable]
-  331 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_read_buf(uint8_t*, uint8_t)':
-../Core/Src/main.cpp:336:20: warning: unused variable 'status' [-Wunused-variable]
-  336 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, RTC_ADDR, buf[0], 1, buf, size, 100);// reg = buf[0]
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'uint8_t rtc_read_reg(uint8_t)':
-../Core/Src/main.cpp:341:20: warning: unused variable 'status' [-Wunused-variable]
-  341 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, RTC_ADDR, reg, 1, data_rec8, 1, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_write_reg(uint8_t, uint8_t)':
-../Core/Src/main.cpp:350:20: warning: unused variable 'status' [-Wunused-variable]
-  350 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, 2, 10);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void rtc_write_reg_bytes(uint8_t*, uint8_t)':
-../Core/Src/main.cpp:362:20: warning: unused variable 'status' [-Wunused-variable]
-  362 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit (&hi2c1, RTC_ADDR, data, size, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void bno055_read_data(uint8_t, uint8_t)':
-../Core/Src/main.cpp:458:20: warning: unused variable 'status' [-Wunused-variable]
-  458 |  HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, BNO055_ADDRESS, reg, 1, data_rec_bno, numberofbytes, 100);
-      |                    ^~~~~~
-../Core/Src/main.cpp: In function 'void init_buf123()':
-../Core/Src/main.cpp:548:19: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
-  548 |    for (int i=0; i<sizeof(buf1_stel); i++) {
-      |                  ~^~~~~~~~~~~~~~~~~~
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:1046:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
- 1046 |  for (int i=0; i<sizeof(ra_str); i++) {
-      |                ~^~~~~~~~~~~~~~~
-../Core/Src/main.cpp:1049:17: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
- 1049 |  for (int i=0; i<sizeof(dec_str); i++) {
-      |                ~^~~~~~~~~~~~~~~~
-../Core/Src/main.cpp:927:6: warning: variable 'neg_lng' set but not used [-Wunused-but-set-variable]
-  927 |  int neg_lng = 0;
-      |      ^~~~~~~
-../Core/Src/main.cpp:983:9: warning: unused variable 'az' [-Wunused-variable]
-  983 |  double az = hrz.az;
-      |         ^~
-../Core/Src/main.cpp:984:9: warning: unused variable 'alt' [-Wunused-variable]
-  984 |  double alt = hrz.alt;
-      |         ^~~
-arm-none-eabi-g++ -o "gps-eeprom-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\gps-eeprom-test\STM32L452RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps-eeprom-test.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: gps-eeprom-test.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'display_data':
+../Core/Src/main.c:96:20: warning: '% 4f' directive writing between 4 and 317 bytes into a region of size 4 [-Wformat-overflow=]
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |                    ^~~~
+../Core/Src/main.c:96:19: note: assuming directive output of 9 bytes
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |                   ^~~~~~
+../Core/Src/main.c:96:2: note: 'sprintf' output between 5 and 318 bytes into a destination of size 4
+   96 |  sprintf (x_char, "% 4f", data); // needed to add -u _printf_float linker flag -- might have to change to %.4f
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "F411-test.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\celin\Documents\svh_lab_projects\2_stellarium\workspace_1.11.2\F411-test\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F411-test.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: F411-test.elf
  
-arm-none-eabi-size   gps-eeprom-test.elf 
-arm-none-eabi-objdump -h -S  gps-eeprom-test.elf  > "gps-eeprom-test.list"
+arm-none-eabi-size   F411-test.elf 
+arm-none-eabi-objdump -h -S  F411-test.elf  > "F411-test.list"
    text	   data	    bss	    dec	    hex	filename
- 222840	    784	   9760	 233384	  38fa8	gps-eeprom-test.elf
+  51012	    724	   8948	  60684	   ed0c	F411-test.elf
 Finished building: default.size.stdout
  
-Finished building: gps-eeprom-test.list
+Finished building: F411-test.list
+ 
+13:11:05 **** Incremental Build of configuration Debug for project F411-test ****
+make -j16 all 
+arm-none-eabi-size   F411-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51012	    724	   8948	  60684	   ed0c	F411-test.elf
+Finished building: default.size.stdout
+ 
+13:24:29 **** Incremental Build of configuration Debug for project F411-test ****
+make -j16 all 
+arm-none-eabi-size   F411-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  51012	    724	   8948	  60684	   ed0c	F411-test.elf
+Finished building: default.size.stdout
  

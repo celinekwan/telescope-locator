@@ -24,25 +24,23 @@ main.cpp:420:16:uint8_t bcd2bin(uint8_t)	1
 main.cpp:428:10:DateTime now()	1
 main.cpp:448:6:void bno055_write_datum(uint8_t, uint8_t)	1
 main.cpp:456:6:void bno055_read_data(uint8_t, uint8_t)	1
-main.cpp:472:6:void bno055_config()	1
-main.cpp:478:6:void bno055_read_calibrate_status()	5
-main.cpp:501:6:void bno055_print_calibrate_status()	1
-main.cpp:518:6:void print_EUL_data(uint8_t)	2
-main.cpp:546:6:void init_buf123()	2
-main.cpp:565:6:void I2Csendcmd(uint8_t, uint8_t)	1
-main.cpp:583:6:void I2Csenddatum(uint8_t, uint8_t)	1
-main.cpp:591:6:void I2Cread(uint8_t)	1
-main.cpp:597:6:void screen_init()	1
-main.cpp:614:6:void screen_write_string(char*)	5
-main.cpp:642:6:void screen_write_xyz(float, float, float)	2
-main.cpp:667:6:void screen_write_accel_data(float, float, float)	1
-main.cpp:726:5:int main()	24
-main.cpp:1149:6:void SystemClock_Config()	4
-main.cpp:1199:13:void MX_I2C1_Init()	4
-main.cpp:1247:13:void MX_USART1_UART_Init()	2
-main.cpp:1282:13:void MX_USART2_UART_Init()	2
-main.cpp:1317:13:void MX_GPIO_Init()	1
-main.cpp:1365:6:void Error_Handler()	1
-main.cpp:1374:1:void __static_initialization_and_destruction_0(int, int)	5
-main.cpp:1374:1:cpp)	1
-main.cpp:1374:1:cpp)	1
+main.cpp:474:6:void bno055_config()	1
+main.cpp:480:6:void bno055_read_calibrate_status()	5
+main.cpp:505:6:void bno055_print_calibrate_status()	1
+main.cpp:522:6:void print_EUL_data(uint8_t)	2
+main.cpp:551:6:void init_buf123()	2
+main.cpp:570:6:void I2Csendcmd(uint8_t, uint8_t)	1
+main.cpp:588:6:void I2Csenddatum(uint8_t, uint8_t)	1
+main.cpp:596:6:void I2Cread(uint8_t)	1
+main.cpp:602:6:void screen_init()	1
+main.cpp:619:6:void screen_write_string(char*)	5
+main.cpp:713:5:int main()	26
+main.cpp:1206:6:void SystemClock_Config()	4
+main.cpp:1256:13:void MX_I2C1_Init()	4
+main.cpp:1304:13:void MX_USART1_UART_Init()	2
+main.cpp:1339:13:void MX_USART2_UART_Init()	2
+main.cpp:1374:13:void MX_GPIO_Init()	1
+main.cpp:1422:6:void Error_Handler()	1
+main.cpp:1431:1:void __static_initialization_and_destruction_0(int, int)	5
+main.cpp:1431:1:cpp)	1
+main.cpp:1431:1:cpp)	1

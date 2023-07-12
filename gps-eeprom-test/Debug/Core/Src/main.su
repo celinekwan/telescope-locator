@@ -24,25 +24,23 @@ c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/main.cpp:428:10:DateTime now()	72	static
 ../Core/Src/main.cpp:448:6:void bno055_write_datum(uint8_t, uint8_t)	32	static
 ../Core/Src/main.cpp:456:6:void bno055_read_data(uint8_t, uint8_t)	40	static
-../Core/Src/main.cpp:472:6:void bno055_config()	8	static
-../Core/Src/main.cpp:478:6:void bno055_read_calibrate_status()	16	static
-../Core/Src/main.cpp:501:6:void bno055_print_calibrate_status()	8	static
-../Core/Src/main.cpp:518:6:void print_EUL_data(uint8_t)	32	static
-../Core/Src/main.cpp:546:6:void init_buf123()	16	static
-../Core/Src/main.cpp:565:6:void I2Csendcmd(uint8_t, uint8_t)	32	static
-../Core/Src/main.cpp:583:6:void I2Csenddatum(uint8_t, uint8_t)	32	static
-../Core/Src/main.cpp:591:6:void I2Cread(uint8_t)	32	static
-../Core/Src/main.cpp:597:6:void screen_init()	8	static
-../Core/Src/main.cpp:614:6:void screen_write_string(char*)	24	static
-../Core/Src/main.cpp:642:6:void screen_write_xyz(float, float, float)	96	static
-../Core/Src/main.cpp:667:6:void screen_write_accel_data(float, float, float)	24	static
-../Core/Src/main.cpp:726:5:int main()	280	static
-../Core/Src/main.cpp:1149:6:void SystemClock_Config()	96	static
-../Core/Src/main.cpp:1199:13:void MX_I2C1_Init()	8	static
-../Core/Src/main.cpp:1247:13:void MX_USART1_UART_Init()	8	static
-../Core/Src/main.cpp:1282:13:void MX_USART2_UART_Init()	8	static
-../Core/Src/main.cpp:1317:13:void MX_GPIO_Init()	48	static
-../Core/Src/main.cpp:1365:6:void Error_Handler()	4	static,ignoring_inline_asm
-../Core/Src/main.cpp:1374:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../Core/Src/main.cpp:1374:1:cpp)	8	static
-../Core/Src/main.cpp:1374:1:cpp)	8	static
+../Core/Src/main.cpp:474:6:void bno055_config()	8	static
+../Core/Src/main.cpp:480:6:void bno055_read_calibrate_status()	16	static
+../Core/Src/main.cpp:505:6:void bno055_print_calibrate_status()	8	static
+../Core/Src/main.cpp:522:6:void print_EUL_data(uint8_t)	32	static
+../Core/Src/main.cpp:551:6:void init_buf123()	16	static
+../Core/Src/main.cpp:570:6:void I2Csendcmd(uint8_t, uint8_t)	32	static
+../Core/Src/main.cpp:588:6:void I2Csenddatum(uint8_t, uint8_t)	32	static
+../Core/Src/main.cpp:596:6:void I2Cread(uint8_t)	32	static
+../Core/Src/main.cpp:602:6:void screen_init()	8	static
+../Core/Src/main.cpp:619:6:void screen_write_string(char*)	24	static
+../Core/Src/main.cpp:713:5:int main()	280	static
+../Core/Src/main.cpp:1206:6:void SystemClock_Config()	96	static
+../Core/Src/main.cpp:1256:13:void MX_I2C1_Init()	8	static
+../Core/Src/main.cpp:1304:13:void MX_USART1_UART_Init()	8	static
+../Core/Src/main.cpp:1339:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:1374:13:void MX_GPIO_Init()	48	static
+../Core/Src/main.cpp:1422:6:void Error_Handler()	4	static,ignoring_inline_asm
+../Core/Src/main.cpp:1431:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Core/Src/main.cpp:1431:1:cpp)	8	static
+../Core/Src/main.cpp:1431:1:cpp)	8	static

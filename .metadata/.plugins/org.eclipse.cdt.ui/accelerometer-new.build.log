@@ -1,4 +1,4 @@
-10:15:14 **** Build of configuration Debug for project accelerometer-new ****
+13:05:28 **** Build of configuration Debug for project accelerometer-new ****
 make -j16 all 
 arm-none-eabi-size   accelerometer-new.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   accelerometer-new.elf
 Finished building: default.size.stdout
  
 
-10:15:15 Build Finished. 0 errors, 0 warnings. (took 283ms)
+13:05:29 Build Finished. 0 errors, 0 warnings. (took 409ms)
 

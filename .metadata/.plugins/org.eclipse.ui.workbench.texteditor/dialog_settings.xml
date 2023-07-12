@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Transmit_IT"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="transmit_it"/>
-			<item value="ra_str"/>
-			<item value="strcpy"/>
-			<item value="hal_uart_transmit_it"/>
+			<item value="reset_state"/>
+			<item value="reset"/>
+			<item value="boot"/>
+			<item value="usart1"/>
+			<item value="print_EUL_data"/>
 			<item value="screen_write"/>
-			<item value="dec_str"/>
-			<item value="buf1_stel"/>
-			<item value="void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)"/>
-			<item value="usart2"/>
-			<item value="ra_ss"/>
-			<item value="stel_cmds"/>
-			<item value="result1"/>
-			<item value="LD4_Pin"/>
-			<item value="GPIOA"/>
-			<item value="stel-cmds"/>
+			<item value="usart1_"/>
+			<item value="usart"/>
+			<item value="disable"/>
+			<item value="print_eul"/>
+			<item value="transmit_it"/>
+			<item value="cplt_iy"/>
+			<item value="cplt"/>
+			<item value="screen_write_string"/>
+			<item value="print_buf_gps"/>
 		</list>
 		<list key="replacehistory">
+			<item value="HAL_UART_Transmit_IT("/>
+			<item value="HAL_UART_Transmit_IT"/>
 			<item value="buf3_stel"/>
 			<item value="buf2_stel"/>
 			<item value="buf1_stel"/>
@@ -40,10 +42,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1418"/>
-		<item key="DIALOG_Y_ORIGIN" value="608"/>
-		<item key="DIALOG_WIDTH" value="511"/>
-		<item key="DIALOG_HEIGHT" value="499"/>
+		<item key="DIALOG_X_ORIGIN" value="1333"/>
+		<item key="DIALOG_Y_ORIGIN" value="463"/>
+		<item key="DIALOG_WIDTH" value="481"/>
+		<item key="DIALOG_HEIGHT" value="383"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

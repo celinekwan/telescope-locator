@@ -6815,7 +6815,7 @@ static HAL_StatusTypeDef I2C_WaitOnRXNEFlagUntilTimeout(I2C_HandleTypeDef *hi2c,
   * @retval HAL status
   */
 static HAL_StatusTypeDef I2C_IsErrorOccurred(I2C_HandleTypeDef *hi2c, uint32_t Timeout, uint32_t Tickstart)
-{
+		{
   HAL_StatusTypeDef status = HAL_OK;
   uint32_t itflag   = hi2c->Instance->ISR;
   uint32_t error_code = 0;

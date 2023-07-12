@@ -202,7 +202,7 @@ GPSSTRUCT gpsData;
 // BNO *********************************
 uint8_t data_rec_bno[6] = {0}; // store data from i2c read
 int16_t x, y, z; // store data from accel registers
-char disp_buf[60] = {0}; // store data to display to UART serial port
+char disp_buf[45] = {0}; // store data to display to UART serial port
 // calibration status: 3 [fully calibrated], 0 [not calibrated]
 uint8_t sys_stat = 0; // system (all sensors)
 uint8_t gyr_stat = 0;
@@ -455,9 +455,11 @@ void bno055_write_datum (uint8_t reg, uint8_t value) {
 // reads multiple bytes
 void bno055_read_data (uint8_t reg, uint8_t numberofbytes) {
 
+//	for (int i=0; i<sizeof(data_rec_bno); i++) data_rec_bno[i] = 0; // clear buffer
+
 	HAL_StatusTypeDef status = HAL_I2C_Mem_Read (&hi2c1, BNO055_ADDRESS, reg, 1, data_rec_bno, numberofbytes, 100);
 
-//	// printing status
+	// printing status
 //	HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n bno055_read_data", sizeof("\r\n bno055_read_data"), 10);
 //	if (HAL_ERROR == status) {
 //		HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n HAL_ERROR returned", sizeof("\r\n HAL_ERROR returned"), 10);
@@ -481,16 +483,18 @@ void bno055_read_calibrate_status (void) {
 		bno055_read_data(CALIB_STAT,1);
 
 		sys_stat = ( data_rec_bno[0] & SYS_MASK ) >> 6;
-		gyr_stat = ( data_rec_bno[0] & GYR_MASK ) >> 4;
+//		gyr_stat = ( data_rec_bno[0] & GYR_MASK ) >> 4;
+		gyr_stat = 3;
 		acc_stat = ( data_rec_bno[0] & ACC_MASK ) >> 2;
 		mag_stat = ( data_rec_bno[0] & MAG_MASK ) ;
 
 		// Display data to UART port
-		sprintf (disp_buf, "sys= %d    gyr= %d    acc= %d    mag= %d", sys_stat, gyr_stat, acc_stat, mag_stat);
+//		sprintf (disp_buf, "\r\n sys= %d    gyr= %d    acc= %d    mag= %d", sys_stat, gyr_stat, acc_stat, mag_stat);
 //		HAL_UART_Transmit(&huart2,(uint8_t*)disp_buf,sizeof(disp_buf),10);
+		sprintf (disp_buf, "sys= %d    gyr= %d    acc= %d    mag= %d", sys_stat, gyr_stat, acc_stat, mag_stat);
 		screen_write_string(disp_buf);
 
-		HAL_Delay(500);
+//		HAL_Delay(500);
 	}
 
 //	HAL_UART_Transmit(&huart2,(uint8_t*)"\r\n Calibration Complete!",sizeof("\r\n Calibration Complete!"),10);
@@ -519,7 +523,7 @@ void print_EUL_data (uint8_t reg) { // changed from print_RAW_data
 	  // Note: Data output rate for fusion data in NDOF mode is 100Hz (i.e. every 10ms)
 
 	  // Clear display buffer
-	  for (int i=0; i<50; i++) {
+	  for (int i=0; i<sizeof(disp_buf); i++) {
 		  disp_buf[i] = 0;
 	  }
 
@@ -535,7 +539,8 @@ void print_EUL_data (uint8_t reg) { // changed from print_RAW_data
 	  z = z >> 4;
 
 	  // Display data to UART port
-	  sprintf (disp_buf, "hd = %d  rol= %d  pit= %d", x, y, z);
+	  sprintf (disp_buf, "h%d r%d p%d ", x, y, z);
+	  strcpy(string_to_LCD,disp_buf);
 //	  screen_write_string(disp_buf);
 //	  HAL_UART_Transmit(&huart2,(uint8_t*)disp_buf,sizeof(disp_buf),10);
 }
@@ -639,37 +644,6 @@ void screen_write_string(char string_to_write[]) {
 
 }
 
-void screen_write_xyz (float x, float y, float z) {
-
-	char str_x[11]; // not 10 bc dont want cursor to do funky stuff if reach multiple of 10
-	char str_y[11];
-	char str_z[11];
-	char str_xyz[30];
-
-	for (int i=0; i<30; i++) {
-		str_xyz[i] = '\0';
-	}
-	// check if all chars initialized to NULL
-
-	sprintf (str_x, "X:%.4f  ", x); // check str_x
-	sprintf (str_y, "Y:%.4f  ", y); // check str_y
-	sprintf (str_z, "Z:%.4f  ", z); // check str_z
-
-	strcpy (str_xyz, str_x);
-	strcat (str_xyz, str_y);
-	strcat (str_xyz, str_z);
-	// check str_xyz
-
-	screen_write_string(str_xyz);
-
-}
-
-void screen_write_accel_data (float x, float y, float z) {
-	I2Csendcmd(SCREEN_ADDR, COMMAND_CLEAR_DISPLAY);
-	screen_write_xyz(x,y,z);
-	HAL_Delay(100);
-}
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -695,12 +669,14 @@ int gps_minutes = 0;
 int gps_seconds = 0;
 
 // Printing *********************************
-char print_buf_1[20] = {0};
-char print_buf_2[20] = {0};
+char print_buf_1[30] = {0};
+char print_buf_2[30] = {0};
 char print_buf_3[40] = {0};
 char print_buf_4[60] = {0};
 char print_buf_5[40] = {0};
 char print_buf_6[40] = {0};
+
+char print_buf_gps[40] = {0};
 
 // Printing RA/DEC in Stel format *********
 char print_buf_7[30] = {0};
@@ -716,6 +692,17 @@ double s_1=0, s_2 =0;
 const char* GG = "GG";
 const char* RM = "RM";
 const char* asterisk = "*";
+
+// Libnova ******************************
+unsigned short ra_hh ;
+unsigned short ra_mm ;
+double ra_ss ;
+
+// DD MM SS for DEC
+unsigned short dec_neg ;
+unsigned short dec_dd ;
+unsigned short dec_mm ;
+double dec_ss ;
 
 /* USER CODE END 0 */
 
@@ -752,7 +739,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-	Ringbuf_init();
+   Ringbuf_init();
 
 	uint16_t year = 0;
 	uint8_t month = 0;
@@ -763,11 +750,11 @@ int main(void)
 
 	//	  ========== LCD Screen Initialization ==================================
 	// turn off display, turn on display (translated from PORTD section of Stewart's code)
-	HAL_Delay(5);
+//	HAL_Delay(5);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0,GPIO_PIN_RESET);
-	HAL_Delay(200);
+//	HAL_Delay(200);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0,GPIO_PIN_SET);
-	HAL_Delay(5);
+//	HAL_Delay(5);
 
 	//1. clear screen
 	screen_init();
@@ -775,6 +762,8 @@ int main(void)
 	// BNO config *********************************
 	bno055_config();
 	bno055_read_calibrate_status();
+
+
 
 	// Get lat/lng and date/time value from GPS
 	while ( (lat == 0 && lng == 0 ) || (gps_year == 0) ) { // Condition: lat/lng are not updated OR year not extracted
@@ -791,8 +780,8 @@ int main(void)
 		}
 
 		//	  ========== Extract lng/lat Data ==================================
-		lat = gga->lcation.latitude;
-		lng = gga->lcation.longitude;
+//		lat = gga->lcation.latitude;
+//		lng = gga->lcation.longitude;
 
 		// Modify +/- sign of lat/lng
 		lat_dir = gga->lcation.NS;
@@ -809,6 +798,34 @@ int main(void)
 		gps_seconds = gga->tim.sec; /*!< Seconds. Valid values 0 - 59.99999.... */
 
 	}
+
+//	sprintf(print_buf_gps,"\r\n\n lat/lng: %.4f/%.4f\n mm/dd/yy: %d/%d/%d\n hh/mm/ss: %d/%d/%d",
+//		lat,lng,gps_year,gps_month,gps_day,gps_hour,gps_minutes,gps_seconds);
+//    HAL_UART_Transmit(&huart2, (uint8_t*)print_buf, sizeof(print_buf),10);
+	sprintf(print_buf_gps,"%.4f/%.4f %d/%d/%d %d/%d/%d",
+		lat,lng,gps_year,gps_month,gps_day,gps_hour,gps_minutes,gps_seconds);
+	screen_write_string(print_buf_gps);
+
+//	USART1->CR1 &= ~USART_CR1_RXNEIE;
+
+	//	  ========== BENCH TEST HARDCODED GPS DATA ==================================
+//	// Bahen Building
+	lat = 43.659819;
+	lng = -79.399903;
+//
+//	// Modify +/- sign of lat/lng
+//	lat_dir = 'N';
+//	lng_dir = 'W';
+//	if (lat_dir == 'S') lat *= -1;
+//	if (lng_dir == 'W') lng *= -1;
+//
+//	gps_year = 23;
+//	gps_month = 7;
+//	gps_day = 7;
+//	gps_hour = 23;
+//	gps_minutes = 48;
+//	gps_seconds = 18;
+	//	  ============================================
 
 //  	HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n Lat/lng & date/time extraction done", sizeof("\r\n Lat/lng & date/time extraction done"), 10);
 
@@ -827,16 +844,17 @@ int main(void)
 //	HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n Date/time initialization done", sizeof("\r\n Date/time initialization done"), 10);
 
 	// check if there's a power loss
-	if (lostPower()) {
-//	  HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n RTC lost power, let's set the time!", sizeof("\r\n RTC lost power, let's set the time!"), 10);
-
-	  // When time needs to be set on a new device, or after a power loss, the
-	  // following line sets the RTC to the date & time this sketch was compiled
-	  adjust(dt); // Sets the RTC with an explicit date & time
-
-	} else {
-//	  HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n RTC has power", sizeof("\r\n RTC has power"), 10);
-	}
+//	if (lostPower()) {
+////	  HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n RTC lost power, let's set the time!", sizeof("\r\n RTC lost power, let's set the time!"), 10);
+//
+//	  // When time needs to be set on a new device, or after a power loss, the
+//	  // following line sets the RTC to the date & time this sketch was compiled
+//	  adjust(dt); // Sets the RTC with an explicit date & time
+//
+//	}
+////	else {
+////	  HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n RTC has power", sizeof("\r\n RTC has power"), 10);
+////	}
 
 	adjust(dt);
 
@@ -890,11 +908,11 @@ int main(void)
 	sec = current.second();
 
 	//	  ========== Print current time ==================================
-	char buffer[100] = {};
+	char buffer[100] = {0};
 //	sprintf(buffer, "\r\n year: %u \r\n month: %d \r\n day: %d \r\n hour: %d \r\n min: %d \r\n sec: %d\r\n", year,month,day,hour,min,sec); // Convert the integer to a string
 //	HAL_UART_Transmit(&huart2, (uint8_t *)buffer, sizeof(buffer), 10); // Transmit the string via UART
 	sprintf(buffer, "%u/%d/%d  %d/%d/%d  ", year,month,day,hour,min,sec);
-	strcpy(string_to_LCD,buffer);
+//	strcpy(string_to_LCD,buffer);
 
 	//	  ========== Read Lat/Lng from EEPROM ==================================
 	// Read lat/lng
@@ -919,15 +937,52 @@ int main(void)
 	// GEOGRAPHIC LIB + LIBNOVA STUFF ********************************************************************
 	//	  ========== Conversion ==================================
 	// use lat_ret and lng_ret
-	DMS::Encode(lat_ret,d_1,m_1,s_1); // latitude
-	DMS::Encode(lng_ret,d_2,m_2,s_2); // longitude
+//	DMS::Encode(lat_ret,d_1,m_1,s_1); // latitude
+//	DMS::Encode(lng_ret,d_2,m_2,s_2); // longitude
+	DMS::Encode(lat,d_1,m_1,s_1); // latitude
+	DMS::Encode(lng,d_2,m_2,s_2); // longitude
+
+	// Print DMS
+//	for (int i=0; i<sizeof(print_buf_1); i++) print_buf_1[i] = 0; // clear buffer
+//	sprintf(print_buf_1,"\r\n DMS %.2f/%.2f/%.2f", d_1, m_1, s_1);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_1, sizeof(print_buf_1), 10);
+//	for (int i=0; i<sizeof(print_buf_2); i++) print_buf_2[i] = 0; // clear buffer
+//	sprintf(print_buf_2,"\r\n DMS %.2f/%.2f/%.2f", d_2, m_2, s_2);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_2, sizeof(print_buf_2), 10);
 
 	// deal with negative direction
 	int neg_lat = 0;
 	int neg_lng = 0;
 
-	if (lat_dir == 'S') neg_lat = 1;
-	if (lng_dir == 'W') neg_lng = 1;
+	if (lat_dir == 'S') {
+		neg_lat = 1;
+
+		// clear the negative sign from DMS
+		d_1 *= -1;
+		m_1 *= -1;
+		s_1 *= -1;
+	}
+
+	if (lng_dir == 'W') {
+		neg_lng = 1;
+
+		// clear the negative sign from DMS
+		d_2 *= -1;
+		m_2 *= -1;
+		s_2 *= -1;
+	}
+
+//	// Print DMS again
+//	for (int i=0; i<sizeof(print_buf_1); i++) print_buf_1[i] = 0; // clear buffer
+//	sprintf(print_buf_1,"\r\n DMS %.2f/%.2f/%.2f", d_1, m_1, s_1);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_1, sizeof(print_buf_1), 10);
+//	for (int i=0; i<sizeof(print_buf_2); i++) print_buf_2[i] = 0; // clear buffer
+//	sprintf(print_buf_2,"\r\n DMS %.2f/%.2f/%.2f", d_2, m_2, s_2);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_2, sizeof(print_buf_2), 10);
+
+//	// clear buffers
+//	for (int i=0; i<sizeof(print_buf_1); i++) print_buf_1[i] = 0;
+//	for (int i=0; i<sizeof(print_buf_2); i++) print_buf_2[i] = 0;
 
 	// conversion ***********************
 	/*
@@ -937,26 +992,36 @@ int main(void)
 	 * DMS lat: 43° 39' 35.3592'' N
 	 * DMS lng: 79° 23' 49.4016'' W
 	 */
-//	hobserver.lng.neg = neg_lng; //1
-	hobserver.lng.degrees = d_2; //79
-	hobserver.lng.minutes = m_2; //14
+	hobserver.lng.neg = (short) neg_lng; //1
+	hobserver.lng.degrees = (short) d_2; //79
+	hobserver.lng.minutes = (short) m_2; //14
 	hobserver.lng.seconds = s_2; //16
-	hobserver.lat.neg = neg_lat; //0
-	hobserver.lat.degrees = d_1; //43
-	hobserver.lat.minutes = m_1; //23
+	hobserver.lat.neg = (short) neg_lat; //0
+	hobserver.lat.degrees = (short) d_1; //43
+	hobserver.lat.minutes = (short) m_1; //23
 	hobserver.lat.seconds = s_1; //44
 
-	/* Alnilam
-	 * RA: 05h 36m 12s
-	 * DEC: -01° 12' 06"
+	// BENCH TEST: Stellarium location:  N 43 39 49.68, W 79 23 59.65
+//	hobserver.lng.neg = 1; //1
+//	hobserver.lng.degrees = 79; //79
+//	hobserver.lng.minutes = 23; //14
+//	hobserver.lng.seconds = 59.65; //16
+//	hobserver.lat.neg = 0; //0
+//	hobserver.lat.degrees = 43; //43
+//	hobserver.lat.minutes = 39; //23
+//	hobserver.lat.seconds = 49.68; //44
+
+	/* Antares
+	 * RA: 16h 29m 25.64s
+	 * DEC: -26 25 59.2
 	 */
-	hobject.ra.hours = 5;
-	hobject.ra.minutes = 36;
-	hobject.ra.seconds = 12;
+	hobject.ra.hours = 16;
+	hobject.ra.minutes = 29;
+	hobject.ra.seconds = 26;
 	hobject.dec.neg = 1;
-	hobject.dec.degrees = 1;
-	hobject.dec.minutes = 12;
-	hobject.dec.seconds = 6;
+	hobject.dec.degrees = 26;
+	hobject.dec.minutes = 25;
+	hobject.dec.seconds = 59;
 
 	/* UT date and time */
 	date.years = year;
@@ -966,41 +1031,69 @@ int main(void)
 	date.minutes = min;
 	date.seconds = sec;
 
+//	// Print hobserver
+//	sprintf(print_buf_1,"\r\n hob %u/%u/%u/%.1f", hobserver.lng.neg, hobserver.lng.degrees, hobserver.lng.minutes, hobserver.lng.seconds);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_1, sizeof(print_buf_1), 10);
+//	sprintf(print_buf_2,"\r\n ho2 %u/%u/%u/%.1f", hobserver.lat.neg, hobserver.lat.degrees, hobserver.lat.minutes, hobserver.lat.seconds);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_2, sizeof(print_buf_2), 10);
+
 	// Conversion *********************
-	JD = ln_get_julian_day (&date);
-	ln_hequ_to_equ (&hobject, &object);
-	ln_hlnlat_to_lnlat (&hobserver, &observer);
-	ln_get_hrz_from_equ (&object, &observer, JD, &hrz);
-	ln_hrz_to_hhrz(&hrz, &hhrz);
+	JD = ln_get_julian_day (&date); //v
+//	JD = 2460135.65855;
+	ln_hequ_to_equ (&hobject, &object); // x
+	ln_hlnlat_to_lnlat (&hobserver, &observer); //v
+	ln_get_hrz_from_equ (&object, &observer, JD, &hrz);// x
+//	ln_hrz_to_hhrz(&hrz, &hhrz);
+
+//	// Print hrz
+//	for (int i=0; i<sizeof(print_buf_1); i++) print_buf_1[i] = 0;
+//	for (int i=0; i<sizeof(print_buf_2); i++) print_buf_2[i] = 0;
+//	sprintf(print_buf_1,"\r\n before:hrz %.2f/%.2f", hrz.alt, hrz.az);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_1, sizeof(print_buf_1), 10);
 
 	// Include roll/pitch/yaw Euler angles in alt/az *********
-	hrz.alt -= z; // alt + (-pitch)
-	hrz.az += x; // az + heading
+	if (x < 180) {
+		hrz.az = x + 180; // heading
+	} else {
+		hrz.az = x - 180;
+	}
 
-	ln_get_equ_from_hrz (&hrz, &observer, JD, &equ); // the one we need
+	// fix alt by looking at limiting values
+	if ( (z*-1) > 90) {
+		z = 180 - (z * -1);
+		hrz.alt = z;
+	} else if ((z*-1)<-90) {
+		z = ( z * -1 + 180 ) * -1;
+		hrz.alt = z;
+	} else {
+		hrz.alt = -1 * z; // pitch
+	}
 
-	//	  ========== Print Hrz and Equ Values ==================================
-	double az = hrz.az;
-	double alt = hrz.alt;
-	double lat = observer.lat;
-	double lng = observer.lng;
-	// double JD
-	double ra = equ.ra;
-	double dec = equ.dec;
+	// Bench test hardcoded values
+//	observer.lat = lat;
+//	observer.lng = lng;
 
-//	sprintf(print_buf_3,"\r\n hrz==az: % 4f , alt: % 4f", az, alt);
-//	HAL_UART_Transmit(&huart2, (uint8_t*)print_buf_3, sizeof(print_buf_3), 10);
-//	sprintf(print_buf_4,"\r\n observer==lat: % 4f , lng: % 4f ", lat, lng);
-//	HAL_UART_Transmit(&huart2, (uint8_t*)print_buf_4, sizeof(print_buf_4), 50);
-//	sprintf(print_buf_5,"\r\n JD: % 4f", JD);
-//	HAL_UART_Transmit(&huart2, (uint8_t*)print_buf_5, sizeof(print_buf_5), 10);
-//	sprintf(print_buf_6,"\r\n equ==ra: % 4f , dec: % 4f", ra, dec);
-//	HAL_UART_Transmit(&huart2, (uint8_t*)print_buf_6, sizeof(print_buf_6), 10);
+//	// Print hrz
+//	for (int i=0; i<sizeof(print_buf_1); i++) print_buf_1[i] = 0;
+//	for (int i=0; i<sizeof(print_buf_2); i++) print_buf_2[i] = 0;
+//	for (int i=0; i<sizeof(print_buf_3); i++) print_buf_3[i] = 0;
+//	for (int i=0; i<sizeof(print_buf_4); i++) print_buf_4[i] = 0;
+//	sprintf(print_buf_1,"\r\n object: %.2f/%.2f", object.ra, object.dec);
+//	sprintf(print_buf_2,"\r\n observer: %.2f/%.2f", observer.lat, observer.lng);
+//	sprintf(print_buf_3,"\r\n JD: %.4f", JD);
+//	sprintf(print_buf_4,"\r\n hrz: %.2f/%.2f", hrz.alt, hrz.az);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_1, sizeof(print_buf_1), 10);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_2, sizeof(print_buf_2), 10);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_3, sizeof(print_buf_3), 10);
+//	HAL_UART_Transmit(&huart2,(uint8_t*)print_buf_4, sizeof(print_buf_4), 10);
 
-	sprintf(print_buf_4,"%.1f %.1f  ", lat, lng);
+	ln_get_equ_from_hrz (&hrz, &observer, JD, &equ);
+
+	sprintf(print_buf_4,"%.1f %.1f  ", object.ra, object.dec);
 	strcat(string_to_LCD,print_buf_4);
-	sprintf(print_buf_6,"%.1f %.1f", ra, dec);
+	sprintf(print_buf_6,"%.1f %.1f", object.ra, object.dec);
 	strcat(string_to_LCD,print_buf_6);
+//	screen_write_string(string_to_LCD);
 
 	//	  ========== Clear all print buffers ==================================
 	// clear data buffer
@@ -1026,15 +1119,15 @@ int main(void)
 	ln_equ_to_hequ(&equ, &hequ);
 
 	// HH MM SS for RA
-	unsigned short ra_hh = hequ.ra.hours;
-	unsigned short ra_mm = hequ.ra.minutes;
-	double ra_ss = hequ.ra.seconds;
+	ra_hh = hequ.ra.hours;
+	ra_mm = hequ.ra.minutes;
+	ra_ss = hequ.ra.seconds;
 
 	// DD MM SS for DEC
-	unsigned short dec_neg = hequ.dec.neg;
-	unsigned short dec_dd = hequ.dec.degrees;
-	unsigned short dec_mm = hequ.dec.minutes;
-	double dec_ss = hequ.dec.seconds;
+	dec_neg = hequ.dec.neg;
+	dec_dd = hequ.dec.degrees;
+	dec_mm = hequ.dec.minutes;
+	dec_ss = hequ.dec.seconds;
 
 	// concatenate to the full RA string
 	snprintf(buf1_stel, 128, "%u", ra_hh);
@@ -1087,47 +1180,11 @@ int main(void)
 	strcat(dec_str,buf3_stel);
 	strcat(dec_str,"#");
 
-	// check ra_str and dec_str -- without stellarium
+//	// check ra_str and dec_str -- without stellarium
 //	HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n\n Stellarium strings:\n", sizeof("\r\n\n Stellarium strings:\n"), 10);
 //	HAL_UART_Transmit(&huart2, (uint8_t*)ra_str, sizeof(ra_str), 10);
 //	HAL_UART_Transmit(&huart2, (uint8_t*)"\t\t", sizeof("\t\t"), 10);
 //	HAL_UART_Transmit(&huart2, (uint8_t*)dec_str, sizeof(dec_str), 10);
-
-	// Detect commands from Stellarium *****************************************************************
-//	status_stel = HAL_UART_Receive(&huart2, (uint8_t*)stel_cmds, sizeof(stel_cmds), 1000);
-//	random_counter++;
-//
-//	if (status_stel == HAL_TIMEOUT) {
-//	  random_counter++; // for breakpoint/debugging
-//	} else if (status_stel == HAL_ERROR) {
-//	  random_counter++;
-//	} else if (status_stel == HAL_BUSY) {
-//	  random_counter++;
-//	} else if (status_stel == HAL_OK) {
-//
-//	  result1 = strcmp(stel_cmds, "#:GR#");
-//	  result2 = strcmp(stel_cmds, "#:GD#");
-//
-//	  sizeof_ra = sizeof(ra_str);
-//
-//	  if (result1==0) {
-//		  status_transmit_ra = HAL_UART_Transmit(&huart2, (uint8_t*)ra_str, sizeof(ra_str), 10);
-//		  ra_mm += 5;
-//		  random_counter ++ ;
-//	  }
-//
-//	  if (result2==0) {
-//		  status_transmit_dec = HAL_UART_Transmit(&huart2, (uint8_t*)dec_str, sizeof(dec_str), 10);
-//		  dec_mm += 5;
-//		  random_counter ++ ;
-//	  }
-//
-//	}
-//
-//	// clear buffer
-//	for (int i=0; i<5; i++) {
-//	  stel_cmds[i] = 0;
-//	}
 
 	//	  ========== Wait 1s for the time to increment per second ==================================
 //	HAL_Delay(1000);
@@ -1135,8 +1192,8 @@ int main(void)
 	//	  ========== Print info to LCD screen ==================================
 	screen_write_string(string_to_LCD);
 
-	int counter = 0; // breakpoint
-	counter++;
+//	int counter = 0; // breakpoint
+//	counter++;
   }
 
   /* USER CODE END 3 */

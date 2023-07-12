@@ -70,6 +70,19 @@ char RMC[100];
 //char RMC[] = "RMC,092751.000,A,5321.6802,N,00630.3371,W,0.06,31.66,280511,,,A*";
 
 GPSSTRUCT gpsData;
+
+GGASTRUCT *gga = &gpsData.ggastruct;
+float lat = 0; // write to EEPROM
+float lng = 0;
+RMCSTRUCT *rmc = &gpsData.rmcstruct;
+int gps_year = 0;
+int gps_month = 0;
+int gps_day = 0;
+int gps_hour = 0;
+int gps_minutes = 0;
+int gps_seconds = 0;
+char print_buf[100] = {0};
+
 /* USER CODE END 0 */
 
 /**
@@ -120,21 +133,34 @@ int main(void)
 
 //	  ========== Part 1 Code ==================================
 	  if (Wait_for("GG") == 1) { // "GPGGA" - need "A" for decodeGGA to work properly
-		  int value_1 = Copy_upto("*", GGA); // 1=successful copy
-		  int value_2 = decodeGGA(GGA,&gpsData.ggastruct); // 0=fixed; 1=error
+		  Copy_upto("*", GGA); // 1=successful copy
+		  decodeGGA(GGA,&gpsData.ggastruct); // 0=fixed; 1=error
 	  }
 
 	  if (Wait_for("RM") == 1) { // "GPRMC" - need "C" for decodeRMC to work properly
-		  int value_3 = Copy_upto("*", RMC); // 1=successful copy
-		  int value_4 = decodeRMC(RMC,&gpsData.rmcstruct); // 0=fixed; 1=error
+		  Copy_upto("*", RMC); // 1=successful copy
+		  decodeRMC(RMC,&gpsData.rmcstruct); // 0=fixed; 1=error
 	  }
 
+	  lat = gga->lcation.latitude;
+	  lng = gga->lcation.longitude;
+
+	  gps_year = rmc->date.Yr; /*!< Years. All values are valid */
+	  gps_month = rmc->date.Mon; /*!< Months. Valid values : 1 (January) - 12 (December) */
+	  gps_day = rmc->date.Day; /*!< Days. Valid values 1 - 28,29,30,31 Depends on month.*/
+	  gps_hour = gga->tim.hour; /*!< Hours. Valid values 0 - 23. */
+	  gps_minutes = gga->tim.min; /*!< Minutes. Valid values 0 - 59. */
+	  gps_seconds = gga->tim.sec; /*!< Seconds. Valid values 0 - 59.99999.... */
+
+	  sprintf(print_buf,"\r\n\n lat/lng: %.4f/%.4f\n mm/dd/yy: %d/%d/%d\n hh/mm/ss: %d/%d/%d",
+			  lat,lng,gps_year,gps_month,gps_day,gps_hour,gps_minutes,gps_seconds);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)print_buf, sizeof(print_buf),10);
 
 	  microsCurrent = HAL_GetTick();
-	  char ready_msg[] = "\r\n GPS data is stable and ready for reading.";
+	  char ready_msg[] = "\r\n *********GPS data is stable and ready for reading.";
 	  if ( (microsCurrent >= microsReady) && (flag == 0) ) { // 30s
 		  flag = 1;
-		  HAL_UART_Transmit(&huart2, ready_msg, sizeof(ready_msg), 10);
+		  HAL_UART_Transmit(&huart2, (uint8_t*)ready_msg, sizeof(ready_msg), 10);
 	  }
 	  // check if time is still incrementing
 
